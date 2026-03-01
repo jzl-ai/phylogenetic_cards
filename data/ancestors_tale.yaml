@@ -96,6 +96,95 @@ children:
       common_name: Thale cress
     - latin_name: Chara braunii
       common_name: Stonewort
+    children:
+    - id: embryophyta
+      latin_name: Embryophyta
+      common_name: Land plants
+      rank: Informal
+      divergence_mya: 480
+      characters:
+      - description: Multicellular sporophyte, cuticle/stomata
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Marchantia polymorpha
+        common_name: Common liverwort
+      - latin_name: Physcomitrella patens
+        common_name: Spreading earthmoss
+      children:
+      - id: tracheophyta
+        latin_name: Tracheophyta
+        common_name: Vascular plants
+        rank: Informal
+        divergence_mya: 430
+        characters:
+        - description: Xylem/phloem, lignified cell walls, true roots/stems/leaves
+          character_type: synapomorphy
+          system: morphological
+        representative_species:
+        - latin_name: Psilotum nudum
+          common_name: Whisk fern
+        - latin_name: Equisetum arvense
+          common_name: Field horsetail
+        children:
+        - id: rhyniophyta
+          latin_name: Rhyniopsida
+          common_name: Rhyniophytes
+          rank: Class
+          divergence_mya: 420
+          characters:
+          - description: Dichotomous branching, terminal sporangia (extinct)
+            character_type: synapomorphy
+            system: morphological
+          representative_species:
+          - latin_name: Rhynia gwynne-vaughanii
+            common_name: Rhynia (extinct)
+          - latin_name: Aglaophyton major
+            common_name: Aglaophyton (extinct)
+        - id: spermatophyta
+          latin_name: Spermatophyta
+          common_name: Seed plants
+          rank: Informal
+          divergence_mya: 320
+          characters:
+          - description: Seeds, pollen, secondary growth (wood)
+            character_type: synapomorphy
+            system: morphological
+          representative_species:
+          - latin_name: Ginkgo biloba
+            common_name: Ginkgo
+          - latin_name: Pinus sylvestris
+            common_name: Scots pine
+          children:
+          - id: angiospermae
+            latin_name: Angiospermae
+            common_name: Flowering plants
+            rank: Informal
+            divergence_mya: 140
+            characters:
+            - description: Flowers, double fertilization, enclosed seeds, vessel elements
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Amborella trichopoda
+              common_name: Amborella
+            - latin_name: Nymphaea alba
+              common_name: White water lily
+            children:
+            - id: eudicotyledoneae
+              latin_name: Eudicotyledoneae
+              common_name: Eudicots
+              rank: Informal
+              divergence_mya: 125
+              characters:
+              - description: Tricolpate pollen, flower parts in 4s/5s
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Arabidopsis thaliana
+                common_name: Thale cress
+              - latin_name: Rosa canina
+                common_name: Dog rose
 - id: opisthokonta
   latin_name: Opisthokonta
   common_name: Opisthokonts
@@ -134,6 +223,41 @@ children:
       common_name: Fly agaric
     - latin_name: Penicillium chrysogenum
       common_name: Penicillin mold
+    children:
+    - id: ascomycota
+      latin_name: Ascomycota
+      common_name: Sac fungi
+      rank: Phylum
+      divergence_mya: 500
+      characters:
+      - description: Ascus (sac-shaped spore structure)
+        character_type: synapomorphy
+        system: morphological
+      - description: Septate hyphae
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Saccharomyces cerevisiae
+        common_name: Baker's yeast
+      - latin_name: Morchella esculenta
+        common_name: Common morel
+    - id: basidiomycota
+      latin_name: Basidiomycota
+      common_name: Club fungi
+      rank: Phylum
+      divergence_mya: 500
+      characters:
+      - description: Basidium (club-shaped spore structure)
+        character_type: synapomorphy
+        system: morphological
+      - description: Dikaryotic phase, mushroom fruiting bodies
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Amanita muscaria
+        common_name: Fly agaric
+      - latin_name: Agaricus bisporus
+        common_name: Common mushroom
   - id: animalia
     latin_name: Animalia
     common_name: Animals
@@ -157,6 +281,46 @@ children:
     - latin_name: Amphimedon queenslandica
       common_name: Demosponge
     children:
+    - id: porifera
+      latin_name: Porifera
+      common_name: Sponges
+      rank: Phylum
+      divergence_mya: 700
+      characters:
+      - description: Choanocyte cells, spicule skeleton
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Amphimedon queenslandica
+        common_name: Demosponge
+      - latin_name: Euplectella aspergillum
+        common_name: Venus' flower basket
+    - id: ctenophora
+      latin_name: Ctenophora
+      common_name: Comb jellies
+      rank: Phylum
+      divergence_mya: 700
+      characters:
+      - description: Ctene rows (comb plates), biradial symmetry
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Mnemiopsis leidyi
+        common_name: Warty comb jelly
+      - latin_name: Pleurobrachia pileus
+        common_name: Sea gooseberry
+    - id: placozoa
+      latin_name: Placozoa
+      common_name: Placozoans
+      rank: Phylum
+      divergence_mya: 690
+      characters:
+      - description: Simplest animal body plan, two cell layers
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Trichoplax adhaerens
+        common_name: Trichoplax
     - id: cnidaria
       latin_name: Cnidaria
       common_name: Cnidarians
@@ -233,6 +397,92 @@ children:
             common_name: Fruit fly
           - latin_name: Caenorhabditis elegans
             common_name: Roundworm
+          children:
+          - id: nematoda
+            latin_name: Nematoda
+            common_name: Roundworms
+            rank: Phylum
+            divergence_mya: 550
+            characters:
+            - description: Pseudocoelomate body, cuticle moulted 4x
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Caenorhabditis elegans
+              common_name: Roundworm
+            - latin_name: Ascaris lumbricoides
+              common_name: Giant roundworm
+          - id: arthropoda
+            latin_name: Arthropoda
+            common_name: Arthropods
+            rank: Phylum
+            divergence_mya: 530
+            characters:
+            - description: Jointed appendages, chitinous exoskeleton, segmented body
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Limulus polyphemus
+              common_name: Atlantic horseshoe crab
+            - latin_name: Drosophila melanogaster
+              common_name: Fruit fly
+            children:
+            - id: trilobita
+              latin_name: Trilobita
+              common_name: Trilobites
+              rank: Class
+              divergence_mya: 521
+              characters:
+              - description: Three-lobed body, calcite compound eyes
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Elrathia kingii
+                common_name: Elrathia trilobite (extinct)
+            - id: insecta
+              latin_name: Insecta
+              common_name: Insects
+              rank: Class
+              divergence_mya: 480
+              characters:
+              - description: 3-part body, 3 leg pairs, compound eyes, tracheal respiration
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Drosophila melanogaster
+                common_name: Fruit fly
+              - latin_name: Apis mellifera
+                common_name: Western honey bee
+              children:
+              - id: pterygota
+                latin_name: Pterygota
+                common_name: Winged insects
+                rank: Subclass
+                divergence_mya: 350
+                characters:
+                - description: Wings (first animal flight), metamorphosis
+                  character_type: synapomorphy
+                  system: morphological
+                representative_species:
+                - latin_name: Libellula depressa
+                  common_name: Broad-bodied chaser dragonfly
+                - latin_name: Danaus plexippus
+                  common_name: Monarch butterfly
+                children:
+                - id: hymenoptera
+                  latin_name: Hymenoptera
+                  common_name: Ants, bees, and wasps
+                  rank: Order
+                  divergence_mya: 280
+                  characters:
+                  - description: Haplodiploid sex determination, narrow waist, ovipositor/stinger
+                    character_type: synapomorphy
+                    system: morphological
+                  representative_species:
+                  - latin_name: Apis mellifera
+                    common_name: Western honey bee
+                  - latin_name: Formica rufa
+                    common_name: Red wood ant
         - id: lophotrochozoa
           latin_name: Lophotrochozoa
           common_name: Lophotrochozoans
@@ -247,6 +497,64 @@ children:
             common_name: Common octopus
           - latin_name: Lumbricus terrestris
             common_name: Common earthworm
+          children:
+          - id: annelida
+            latin_name: Annelida
+            common_name: Segmented worms
+            rank: Phylum
+            divergence_mya: 540
+            characters:
+            - description: True segmentation, closed circulation, chaetae
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Lumbricus terrestris
+              common_name: Common earthworm
+            - latin_name: Hirudo medicinalis
+              common_name: Medicinal leech
+          - id: mollusca
+            latin_name: Mollusca
+            common_name: Mollusks
+            rank: Phylum
+            divergence_mya: 550
+            characters:
+            - description: Muscular foot, mantle/shell, radula
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Octopus vulgaris
+              common_name: Common octopus
+            - latin_name: Haliotis rufescens
+              common_name: Red abalone
+            children:
+            - id: cephalopoda
+              latin_name: Cephalopoda
+              common_name: Cephalopods
+              rank: Class
+              divergence_mya: 480
+              characters:
+              - description: Tentacles/arms, jet propulsion, large brain
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Octopus vulgaris
+                common_name: Common octopus
+              - latin_name: Nautilus pompilius
+                common_name: Chambered nautilus
+          - id: bryozoa
+            latin_name: Bryozoa
+            common_name: Moss animals
+            rank: Phylum
+            divergence_mya: 480
+            characters:
+            - description: Colonial filter feeders, lophophore, zooid body plan
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Bugula neritina
+              common_name: Common bryozoan
+            - latin_name: Membranipora membranacea
+              common_name: Kelp-encrusting bryozoan
       - id: deuterostomia
         latin_name: Deuterostomia
         common_name: Deuterostomes
@@ -288,6 +596,21 @@ children:
             common_name: Common starfish
           - latin_name: Echinus esculentus
             common_name: European edible sea urchin
+          children:
+          - id: crinoidea
+            latin_name: Crinoidea
+            common_name: Sea lilies and feather stars
+            rank: Class
+            divergence_mya: 485
+            characters:
+            - description: Stalked body, pinnulate filter-feeding arms
+              character_type: synapomorphy
+              system: morphological
+            representative_species:
+            - latin_name: Metacrinus rotundus
+              common_name: Japanese sea lily
+            - latin_name: Antedon bifida
+              common_name: Rosy feather star
         - id: chordata
           latin_name: Chordata
           common_name: Chordates
@@ -562,6 +885,137 @@ children:
                           common_name: Nile crocodile
                         - latin_name: Aquila chrysaetos
                           common_name: Golden eagle
+                        children:
+                        - id: lepidosauria
+                          latin_name: Lepidosauria
+                          common_name: Lizards, snakes, and tuatara
+                          rank: Superorder
+                          divergence_mya: 260
+                          characters:
+                          - description: Keratinous scales, transverse cloacal slit
+                            character_type: synapomorphy
+                            system: morphological
+                          representative_species:
+                          - latin_name: Sphenodon punctatus
+                            common_name: Tuatara
+                          - latin_name: Varanus komodoensis
+                            common_name: Komodo dragon
+                        - id: testudines
+                          latin_name: Testudines
+                          common_name: Turtles and tortoises
+                          rank: Order
+                          divergence_mya: 260
+                          characters:
+                          - description: Bony shell (carapace + plastron), beak
+                            character_type: synapomorphy
+                            system: morphological
+                          representative_species:
+                          - latin_name: Chelonia mydas
+                            common_name: Green sea turtle
+                          - latin_name: Testudo graeca
+                            common_name: Greek tortoise
+                        - id: archosauria
+                          latin_name: Archosauria
+                          common_name: Archosaurs
+                          rank: Informal
+                          divergence_mya: 250
+                          characters:
+                          - description: Antorbital fenestra, mandibular fenestra, thecodont teeth
+                            character_type: synapomorphy
+                            system: morphological
+                          representative_species:
+                          - latin_name: Crocodylus niloticus
+                            common_name: Nile crocodile
+                          - latin_name: Struthio camelus
+                            common_name: Common ostrich
+                          children:
+                          - id: crocodilia
+                            latin_name: Crocodilia
+                            common_name: Crocodilians
+                            rank: Order
+                            divergence_mya: 240
+                            characters:
+                            - description: Secondary bony palate, four-chambered heart
+                              character_type: synapomorphy
+                              system: morphological
+                            representative_species:
+                            - latin_name: Crocodylus niloticus
+                              common_name: Nile crocodile
+                            - latin_name: Alligator mississippiensis
+                              common_name: American alligator
+                          - id: pterosauria
+                            latin_name: Pterosauria
+                            common_name: Pterosaurs
+                            rank: Order
+                            divergence_mya: 230
+                            characters:
+                            - description: Wing membrane on 4th digit, pneumatised bones (extinct)
+                              character_type: synapomorphy
+                              system: morphological
+                            representative_species:
+                            - latin_name: Pteranodon longiceps
+                              common_name: Pteranodon (extinct)
+                            - latin_name: Quetzalcoatlus northropi
+                              common_name: Quetzalcoatlus (extinct)
+                          - id: dinosauria
+                            latin_name: Dinosauria
+                            common_name: Dinosaurs
+                            rank: Superorder
+                            divergence_mya: 235
+                            characters:
+                            - description: Erect stance, open acetabulum
+                              character_type: synapomorphy
+                              system: morphological
+                            representative_species:
+                            - latin_name: Tyrannosaurus rex
+                              common_name: Tyrannosaurus (extinct)
+                            - latin_name: Passer domesticus
+                              common_name: House sparrow
+                            children:
+                            - id: aves
+                              latin_name: Aves
+                              common_name: Birds
+                              rank: Class
+                              divergence_mya: 165
+                              characters:
+                              - description: Feathers for flight, toothless beak, hollow pneumatised skeleton, endothermy
+                                character_type: synapomorphy
+                                system: morphological
+                              representative_species:
+                              - latin_name: Struthio camelus
+                                common_name: Common ostrich
+                              - latin_name: Gallus gallus
+                                common_name: Red junglefowl
+                              children:
+                              - id: neognathae
+                                latin_name: Neognathae
+                                common_name: Neognaths
+                                rank: Infraclass
+                                divergence_mya: 70
+                                characters:
+                                - description: Fused palatine bones (neognathous palate), keeled sternum for powered flight
+                                  character_type: synapomorphy
+                                  system: morphological
+                                representative_species:
+                                - latin_name: Aquila chrysaetos
+                                  common_name: Golden eagle
+                                - latin_name: Columba livia
+                                  common_name: Rock dove
+                                children:
+                                - id: passeriformes
+                                  latin_name: Passeriformes
+                                  common_name: Perching birds
+                                  rank: Order
+                                  divergence_mya: 50
+                                  characters:
+                                  - description: Anisodactyl feet (3 forward, 1 back), syrinx for complex song, largest bird order
+                                    character_type: synapomorphy
+                                    system: morphological
+                                  representative_species:
+                                  - latin_name: Passer domesticus
+                                    common_name: House sparrow
+                                  - latin_name: Corvus corax
+                                    common_name: Common raven
                       - id: synapsida
                         latin_name: Synapsida
                         common_name: Synapsids
@@ -740,6 +1194,41 @@ children:
                                     common_name: Domestic cattle
                                   - latin_name: Canis lupus familiaris
                                     common_name: Domestic dog
+                                  children:
+                                  - id: chiroptera
+                                    latin_name: Chiroptera
+                                    common_name: Bats
+                                    rank: Order
+                                    divergence_mya: 65
+                                    characters:
+                                    - description: Wings (powered flight)
+                                      character_type: synapomorphy
+                                      system: morphological
+                                    - description: Echolocation
+                                      character_type: synapomorphy
+                                      system: physiological
+                                    representative_species:
+                                    - latin_name: Myotis lucifugus
+                                      common_name: Little brown bat
+                                    - latin_name: Pteropus vampyrus
+                                      common_name: Large flying fox
+                                  - id: cetartiodactyla
+                                    latin_name: Cetartiodactyla
+                                    common_name: Even-toed ungulates and whales
+                                    rank: Order
+                                    divergence_mya: 63
+                                    characters:
+                                    - description: Paraxonic foot/flippers, double-pulley astragalus
+                                      character_type: synapomorphy
+                                      system: morphological
+                                    - description: Whales nested in artiodactyls
+                                      character_type: synapomorphy
+                                      system: molecular
+                                    representative_species:
+                                    - latin_name: Bos taurus
+                                      common_name: Domestic cattle
+                                    - latin_name: Balaenoptera musculus
+                                      common_name: Blue whale
                                 - id: euarchontoglires
                                   latin_name: Euarchontoglires
                                   common_name: Euarchontoglires
