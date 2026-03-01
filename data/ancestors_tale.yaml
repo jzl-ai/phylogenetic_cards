@@ -1229,6 +1229,47 @@ children:
                                       common_name: Domestic cattle
                                     - latin_name: Balaenoptera musculus
                                       common_name: Blue whale
+                                    children:
+                                    - id: ruminantia
+                                      latin_name: Ruminantia
+                                      common_name: Ruminants
+                                      rank: Suborder
+                                      divergence_mya: 56
+                                      characters:
+                                      - description: Four-chambered stomach with rumen for fermentative digestion
+                                        character_type: synapomorphy
+                                        system: physiological
+                                      - description: Loss of upper incisors, replaced by dental pad
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Cannon bone formed by fusion of metacarpals/metatarsals III and IV
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Selenodont molars with crescent-shaped cusps
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      representative_species:
+                                      - latin_name: Giraffa camelopardalis
+                                        common_name: Giraffe
+                                      - latin_name: Cervus elaphus
+                                        common_name: Red deer
+                                    - id: cetacea
+                                      latin_name: Cetacea
+                                      common_name: Whales and dolphins
+                                      rank: Order
+                                      divergence_mya: 56
+                                      characters:
+                                      - description: Fully aquatic with flippers and fluked tail
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Echolocation (in odontocetes)
+                                        character_type: synapomorphy
+                                        system: physiological
+                                      representative_species:
+                                      - latin_name: Balaenoptera musculus
+                                        common_name: Blue whale
+                                      - latin_name: Tursiops truncatus
+                                        common_name: Bottlenose dolphin
                                 - id: euarchontoglires
                                   latin_name: Euarchontoglires
                                   common_name: Euarchontoglires
