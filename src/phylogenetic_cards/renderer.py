@@ -69,6 +69,7 @@ class CardRenderer:
         card: CardContent,
         illustration: Image.Image | None = None,
         tree_diagram: Image.Image | None = None,
+        detail_image: Image.Image | None = None,
     ) -> Image.Image:
         s = self.style
         img = Image.new("RGB", (s.width, s.height), s.bg_color)
@@ -128,7 +129,7 @@ class CardRenderer:
         # -- Organism illustration (centered in middle area) --
         if illustration is not None:
             illust_max_w = s.width - 2 * s.margin_x - 40
-            illust_max_h = 550
+            illust_max_h = 500
             illust = illustration.copy()
             illust.thumbnail((illust_max_w, illust_max_h), Image.LANCZOS)
             ix = (s.width - illust.width) // 2
@@ -139,29 +140,47 @@ class CardRenderer:
                 img.paste(illust, (ix, iy))
             y = iy + illust.height + 10
 
-        # -- Lower section: tree diagram (left) and MYA (right) --
+        # -- Lower section: tree diagram (left), detail image (right), MYA below --
+        lower_y = s.height - s.margin_bottom - 12 - 450
+        bottom_content_h = 0
+
         if tree_diagram is not None:
-            lower_y = s.height - s.margin_bottom - 350
             td = tree_diagram.copy()
-            td.thumbnail((280, 320), Image.LANCZOS)
+            td.thumbnail((400, 420), Image.LANCZOS)
             if td.mode == "RGBA":
                 img.paste(td, (s.margin_x, lower_y), td)
             else:
                 img.paste(td, (s.margin_x, lower_y))
+            bottom_content_h = max(bottom_content_h, td.height)
+
+        if detail_image is not None:
+            di = detail_image.copy()
+            di.thumbnail((320, 320), Image.LANCZOS)
+            di_x = s.width - s.margin_x - di.width
+            # Vertically center relative to tree diagram area
+            di_y = lower_y + (420 - di.height) // 2 if tree_diagram is not None else lower_y
+            if di.mode == "RGBA":
+                img.paste(di, (di_x, di_y), di)
+            else:
+                img.paste(di, (di_x, di_y))
+            bottom_content_h = max(bottom_content_h, di_y - lower_y + di.height)
 
         if card.front.divergence_mya is not None:
             mya_text = f"{card.front.divergence_mya:g} MYA"
             bbox = draw.textbbox((0, 0), mya_text, font=self.font_mya)
             text_w = bbox[2] - bbox[0]
 
-            if tree_diagram is not None:
+            mya_y = lower_y + bottom_content_h + 10 if bottom_content_h > 0 else s.height - s.margin_bottom - 200
+
+            if tree_diagram is not None and detail_image is not None:
+                # Centered when both present
+                mya_x = (s.width - text_w) / 2
+            elif tree_diagram is not None:
                 # Right-aligned to balance tree diagram
                 mya_x = s.width - s.margin_x - text_w
-                mya_y = s.height - s.margin_bottom - 200
             else:
                 # Centered (original layout)
                 mya_x = (s.width - text_w) / 2
-                mya_y = s.height - s.margin_bottom - 200
 
             draw.text(
                 (mya_x, mya_y),
@@ -227,17 +246,7 @@ class CardRenderer:
             y += 45
 
             for syn in card.back.synapomorphies:
-                bullet = f"\u2022 {syn}"
-                lines = self._wrap_text(draw, bullet, self.font_body, content_width - 20)
-                for line in lines:
-                    draw.text(
-                        (s.margin_x + 10, y),
-                        line,
-                        fill=s.text_color,
-                        font=self.font_body,
-                    )
-                    y += 34
-                y += 4
+                y = self._draw_bullet_item(draw, s.margin_x + 10, y, syn, content_width - 10)
 
             y += 16
 
@@ -252,17 +261,7 @@ class CardRenderer:
             y += 45
 
             for char in card.back.other_characters:
-                bullet = f"\u2022 {char}"
-                lines = self._wrap_text(draw, bullet, self.font_body, content_width - 20)
-                for line in lines:
-                    draw.text(
-                        (s.margin_x + 10, y),
-                        line,
-                        fill=s.text_color,
-                        font=self.font_body,
-                    )
-                    y += 34
-                y += 4
+                y = self._draw_bullet_item(draw, s.margin_x + 10, y, char, content_width - 10)
 
             y += 16
 
@@ -277,17 +276,7 @@ class CardRenderer:
             y += 45
 
             for sp in card.back.representative_species:
-                bullet = f"\u2022 {sp}"
-                lines = self._wrap_text(draw, bullet, self.font_body, content_width - 20)
-                for line in lines:
-                    draw.text(
-                        (s.margin_x + 10, y),
-                        line,
-                        fill=s.text_color,
-                        font=self.font_body,
-                    )
-                    y += 34
-                y += 4
+                y = self._draw_bullet_item(draw, s.margin_x + 10, y, sp, content_width - 10)
 
             y += 16
 
@@ -331,11 +320,15 @@ class CardRenderer:
         output_dir: str | Path,
         illustration: Image.Image | None = None,
         tree_diagram: Image.Image | None = None,
+        detail_image: Image.Image | None = None,
     ) -> tuple[Path, Path]:
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        front_img = self.render_front(card, illustration=illustration, tree_diagram=tree_diagram)
+        front_img = self.render_front(
+            card, illustration=illustration,
+            tree_diagram=tree_diagram, detail_image=detail_image,
+        )
         back_img = self.render_back(card)
 
         front_path = output_dir / f"{card.clade_id}_front.png"
@@ -345,6 +338,40 @@ class CardRenderer:
         back_img.save(str(back_path), dpi=(self.style.dpi, self.style.dpi))
 
         return front_path, back_path
+
+    def _draw_bullet_item(
+        self,
+        draw: ImageDraw.ImageDraw,
+        x: int,
+        y: int,
+        text: str,
+        content_width: int,
+    ) -> int:
+        """Draw a bullet item with a filled circle and wrapped text. Returns new y."""
+        s = self.style
+        bullet_size = 8
+        bullet_indent = 22
+        wrap_width = content_width - bullet_indent
+
+        lines = self._wrap_text(draw, text, self.font_body, wrap_width)
+        # Vertical center of first text line for bullet placement
+        first_bbox = draw.textbbox((0, 0), lines[0], font=self.font_body)
+        line_h = first_bbox[3] - first_bbox[1]
+        cy = y + line_h // 2
+        draw.ellipse(
+            [x, cy - bullet_size // 2, x + bullet_size, cy + bullet_size // 2],
+            fill=s.text_color,
+        )
+        for line in lines:
+            draw.text(
+                (x + bullet_indent, y),
+                line,
+                fill=s.text_color,
+                font=self.font_body,
+            )
+            y += 34
+        y += 4
+        return y
 
     @staticmethod
     def _wrap_text(

@@ -123,7 +123,7 @@ def main() -> None:
         pairs = [(clade, clade_to_card(clade)) for clade, _ in pairs]
 
     # Phase 2: Artwork generation / loading
-    artwork_map: dict[str, Path | None] = {}
+    artwork_map: dict[str, tuple[Path | None, Path | None]] = {}
     if args.generate_artwork:
         from .artwork import ArtworkGenerator
 
@@ -139,18 +139,23 @@ def main() -> None:
 
         cache = ArtworkCache(args.artwork_cache)
         for clade, _ in pairs:
-            artwork_map[clade.id] = cache.get(clade.id)
+            artwork_map[clade.id] = (cache.get(clade.id), cache.get_detail(clade.id))
 
     # Phase 3: Render cards
     renderer = CardRenderer()
     tree_renderer = None if args.no_tree_diagram else TreeDiagramRenderer()
 
     for clade, card in pairs:
-        # Load illustration if available
+        # Load illustrations if available
+        main_path, detail_path = artwork_map.get(clade.id, (None, None))
+
         illustration = None
-        art_path = artwork_map.get(clade.id)
-        if art_path is not None:
-            illustration = Image.open(art_path)
+        if main_path is not None:
+            illustration = Image.open(main_path)
+
+        detail_image = None
+        if detail_path is not None:
+            detail_image = Image.open(detail_path)
 
         # Render tree diagram
         tree_diagram = None
@@ -161,6 +166,7 @@ def main() -> None:
             card, args.output,
             illustration=illustration,
             tree_diagram=tree_diagram,
+            detail_image=detail_image,
         )
         print(f"  {card.clade_id}: {front_path.name}, {back_path.name}")
 
