@@ -7,7 +7,7 @@ from typing import Iterator
 
 import yaml
 
-from .models import Clade, Species, TaxonomicRank
+from .models import Character, CharacterSystem, CharacterType, Clade, Species, TaxonomicRank
 
 
 class PhylogeneticTree:
@@ -43,13 +43,15 @@ class PhylogeneticTree:
         except ValueError:
             rank = TaxonomicRank.INFORMAL
 
+        characters = cls._parse_characters(data)
+
         node = Clade(
             id=data["id"],
             latin_name=data.get("latin_name", ""),
             common_name=data.get("common_name", ""),
             rank=rank,
             divergence_mya=data.get("divergence_mya"),
-            synapomorphies=data.get("synapomorphies", []),
+            characters=characters,
             representative_species=species,
             rendezvous_number=data.get("rendezvous_number"),
             parent=parent,
@@ -60,6 +62,41 @@ class PhylogeneticTree:
             node.children.append(child)
 
         return node
+
+    @staticmethod
+    def _parse_characters(data: dict) -> list[Character]:
+        """Parse characters from YAML, supporting both old and new formats."""
+        # New format: characters: list of dicts
+        if "characters" in data:
+            chars = []
+            for entry in data["characters"]:
+                try:
+                    ct = CharacterType(entry.get("character_type", "synapomorphy"))
+                except ValueError:
+                    ct = CharacterType.SYNAPOMORPHY
+                try:
+                    cs = CharacterSystem(entry.get("system", "morphological"))
+                except ValueError:
+                    cs = CharacterSystem.MORPHOLOGICAL
+                chars.append(Character(
+                    description=entry["description"],
+                    character_type=ct,
+                    system=cs,
+                    notes=entry.get("notes", ""),
+                ))
+            return chars
+
+        # Old format: synapomorphies: list of strings
+        if "synapomorphies" in data:
+            return [
+                Character(
+                    description=s,
+                    character_type=CharacterType.SYNAPOMORPHY,
+                )
+                for s in data["synapomorphies"]
+            ]
+
+        return []
 
     def walk(self) -> Iterator[Clade]:
         """Pre-order traversal of all clades."""

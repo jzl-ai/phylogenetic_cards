@@ -9,834 +9,1113 @@ common_name: Eukaryotes
 rank: Domain
 divergence_mya: 2000
 rendezvous_number: 38
-synapomorphies:
-  - Membrane-bound nucleus
-  - Mitochondria (endosymbiotic origin)
-  - Linear chromosomes with histones
-  - Cytoskeleton with tubulin and actin
+characters:
+- description: Membrane-bound nucleus
+  character_type: synapomorphy
+  system: morphological
+- description: Mitochondria (endosymbiotic origin)
+  character_type: synapomorphy
+  system: physiological
+- description: Linear chromosomes with histones
+  character_type: synapomorphy
+  system: molecular
+- description: Cytoskeleton with tubulin and actin
+  character_type: synapomorphy
+  system: morphological
 representative_species:
-  - latin_name: Saccharomyces cerevisiae
-    common_name: Baker's yeast
-  - latin_name: Paramecium caudatum
-    common_name: Paramecium
+- latin_name: Saccharomyces cerevisiae
+  common_name: Baker's yeast
+- latin_name: Paramecium caudatum
+  common_name: Paramecium
 children:
-  - id: excavata
-    latin_name: Excavata
-    common_name: Excavates
-    rank: Informal
-    divergence_mya: 1800
-    rendezvous_number: 37
-    synapomorphies:
-      - Excavated ventral feeding groove (in many members)
-      - Modified mitochondria in some lineages
-    representative_species:
-      - latin_name: Euglena gracilis
-        common_name: Euglena
-      - latin_name: Trypanosoma brucei
-        common_name: Sleeping sickness parasite
-
-  - id: sar_plants
-    latin_name: Diaphoretickes
-    common_name: SAR + Plants
-    rank: Informal
-    divergence_mya: 1700
-    rendezvous_number: 36
-    synapomorphies:
-      - Plastids (primary or secondary endosymbiosis)
-    representative_species:
-      - latin_name: Chlamydomonas reinhardtii
-        common_name: Green alga
-    children:
-      - id: sar
-        latin_name: SAR
-        common_name: SAR supergroup
-        rank: Informal
-        divergence_mya: 1500
-        rendezvous_number: 35
-        synapomorphies:
-          - Diverse plastid origins via secondary endosymbiosis
-        representative_species:
-          - latin_name: Phytophthora infestans
-            common_name: Potato blight oomycete
-          - latin_name: Plasmodium falciparum
-            common_name: Malaria parasite
-
-      - id: archaeplastida
-        latin_name: Archaeplastida
-        common_name: Plants and algae
-        rank: Kingdom
-        divergence_mya: 1500
-        rendezvous_number: 34
-        synapomorphies:
-          - Primary plastids with double membrane
-          - Cellulose cell walls
-          - Starch as storage polysaccharide
-        representative_species:
-          - latin_name: Arabidopsis thaliana
-            common_name: Thale cress
-          - latin_name: Chara braunii
-            common_name: Stonewort
-
-  - id: opisthokonta
-    latin_name: Opisthokonta
-    common_name: Opisthokonts
+- id: excavata
+  latin_name: Excavata
+  common_name: Excavates
+  rank: Informal
+  divergence_mya: 1800
+  rendezvous_number: 37
+  characters:
+  - description: Excavated ventral feeding groove (in many members)
+    character_type: synapomorphy
+    system: morphological
+  - description: Modified mitochondria in some lineages
+    character_type: synapomorphy
+    system: physiological
+  representative_species:
+  - latin_name: Euglena gracilis
+    common_name: Euglena
+  - latin_name: Trypanosoma brucei
+    common_name: Sleeping sickness parasite
+- id: sar_plants
+  latin_name: Diaphoretickes
+  common_name: SAR + Plants
+  rank: Informal
+  divergence_mya: 1700
+  rendezvous_number: 36
+  characters:
+  - description: Plastids (primary or secondary endosymbiosis)
+    character_type: synapomorphy
+    system: physiological
+  representative_species:
+  - latin_name: Chlamydomonas reinhardtii
+    common_name: Green alga
+  children:
+  - id: sar
+    latin_name: SAR
+    common_name: SAR supergroup
     rank: Informal
     divergence_mya: 1500
-    rendezvous_number: 33
-    synapomorphies:
-      - Single posterior flagellum in motile cells
-      - Flat mitochondrial cristae
+    rendezvous_number: 35
+    characters:
+    - description: Diverse plastid origins via secondary endosymbiosis
+      character_type: synapomorphy
+      system: physiological
     representative_species:
-      - latin_name: Saccharomyces cerevisiae
-        common_name: Baker's yeast
+    - latin_name: Phytophthora infestans
+      common_name: Potato blight oomycete
+    - latin_name: Plasmodium falciparum
+      common_name: Malaria parasite
+  - id: archaeplastida
+    latin_name: Archaeplastida
+    common_name: Plants and algae
+    rank: Kingdom
+    divergence_mya: 1500
+    rendezvous_number: 34
+    characters:
+    - description: Primary plastids with double membrane
+      character_type: synapomorphy
+      system: morphological
+    - description: Cellulose cell walls
+      character_type: synapomorphy
+      system: morphological
+    - description: Starch as storage polysaccharide
+      character_type: synapomorphy
+      system: physiological
+    representative_species:
+    - latin_name: Arabidopsis thaliana
+      common_name: Thale cress
+    - latin_name: Chara braunii
+      common_name: Stonewort
+- id: opisthokonta
+  latin_name: Opisthokonta
+  common_name: Opisthokonts
+  rank: Informal
+  divergence_mya: 1500
+  rendezvous_number: 33
+  characters:
+  - description: Single posterior flagellum in motile cells
+    character_type: synapomorphy
+    system: morphological
+  - description: Flat mitochondrial cristae
+    character_type: synapomorphy
+    system: morphological
+  representative_species:
+  - latin_name: Saccharomyces cerevisiae
+    common_name: Baker's yeast
+  children:
+  - id: fungi
+    latin_name: Fungi
+    common_name: Fungi
+    rank: Kingdom
+    divergence_mya: 1200
+    rendezvous_number: 32
+    characters:
+    - description: Chitin cell walls
+      character_type: synapomorphy
+      system: morphological
+    - description: Absorptive heterotrophy
+      character_type: synapomorphy
+      system: physiological
+    - description: Hyphae or yeast growth forms
+      character_type: synapomorphy
+      system: morphological
+    representative_species:
+    - latin_name: Amanita muscaria
+      common_name: Fly agaric
+    - latin_name: Penicillium chrysogenum
+      common_name: Penicillin mold
+  - id: animalia
+    latin_name: Animalia
+    common_name: Animals
+    rank: Kingdom
+    divergence_mya: 800
+    rendezvous_number: 31
+    characters:
+    - description: Multicellular heterotrophs
+      character_type: synapomorphy
+      system: physiological
+    - description: No cell walls
+      character_type: synapomorphy
+      system: morphological
+    - description: Collagen as structural protein
+      character_type: synapomorphy
+      system: morphological
+    - description: Nervous/muscular tissue (most)
+      character_type: synapomorphy
+      system: morphological
+    representative_species:
+    - latin_name: Amphimedon queenslandica
+      common_name: Demosponge
     children:
-      - id: fungi
-        latin_name: Fungi
-        common_name: Fungi
-        rank: Kingdom
-        divergence_mya: 1200
-        rendezvous_number: 32
-        synapomorphies:
-          - Chitin cell walls
-          - Absorptive heterotrophy
-          - Hyphae or yeast growth forms
+    - id: cnidaria
+      latin_name: Cnidaria
+      common_name: Cnidarians
+      rank: Phylum
+      divergence_mya: 680
+      rendezvous_number: 30
+      characters:
+      - description: Cnidocytes (stinging cells)
+        character_type: synapomorphy
+        system: morphological
+      - description: Radial symmetry
+        character_type: synapomorphy
+        system: morphological
+      - description: Gastrovascular cavity
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Aurelia aurita
+        common_name: Moon jellyfish
+      - latin_name: Acropora millepora
+        common_name: Staghorn coral
+    - id: bilateria
+      latin_name: Bilateria
+      common_name: Bilaterians
+      rank: Informal
+      divergence_mya: 650
+      rendezvous_number: 29
+      characters:
+      - description: Bilateral symmetry
+        character_type: synapomorphy
+        system: morphological
+      - description: Three germ layers (triploblastic)
+        character_type: synapomorphy
+        system: morphological
+      - description: Cephalisation (head region)
+        character_type: synapomorphy
+        system: morphological
+      representative_species:
+      - latin_name: Caenorhabditis elegans
+        common_name: Roundworm
+      children:
+      - id: protostomia
+        latin_name: Protostomia
+        common_name: Protostomes
+        rank: Informal
+        divergence_mya: 600
+        rendezvous_number: 28
+        characters:
+        - description: Mouth forms first from blastopore
+          character_type: synapomorphy
+          system: morphological
+        - description: Spiral cleavage (ancestrally)
+          character_type: synapomorphy
+          system: morphological
         representative_species:
-          - latin_name: Amanita muscaria
-            common_name: Fly agaric
-          - latin_name: Penicillium chrysogenum
-            common_name: Penicillin mold
-
-      - id: animalia
-        latin_name: Animalia
-        common_name: Animals
-        rank: Kingdom
-        divergence_mya: 800
-        rendezvous_number: 31
-        synapomorphies:
-          - Multicellular heterotrophs
-          - No cell walls
-          - Collagen as structural protein
-          - Nervous/muscular tissue (most)
-        representative_species:
-          - latin_name: Amphimedon queenslandica
-            common_name: Demosponge
+        - latin_name: Drosophila melanogaster
+          common_name: Fruit fly
         children:
-          - id: cnidaria
-            latin_name: Cnidaria
-            common_name: Cnidarians
-            rank: Phylum
-            divergence_mya: 680
-            rendezvous_number: 30
-            synapomorphies:
-              - Cnidocytes (stinging cells)
-              - Radial symmetry
-              - Gastrovascular cavity
+        - id: ecdysozoa
+          latin_name: Ecdysozoa
+          common_name: Ecdysozoans
+          rank: Informal
+          divergence_mya: 580
+          rendezvous_number: 27
+          characters:
+          - description: Growth by moulting (ecdysis)
+            character_type: synapomorphy
+            system: physiological
+          - description: Cuticle shed periodically
+            character_type: synapomorphy
+            system: physiological
+          representative_species:
+          - latin_name: Drosophila melanogaster
+            common_name: Fruit fly
+          - latin_name: Caenorhabditis elegans
+            common_name: Roundworm
+        - id: lophotrochozoa
+          latin_name: Lophotrochozoa
+          common_name: Lophotrochozoans
+          rank: Informal
+          divergence_mya: 580
+          characters:
+          - description: Trochophore larvae or lophophore feeding structure
+            character_type: synapomorphy
+            system: morphological
+          representative_species:
+          - latin_name: Octopus vulgaris
+            common_name: Common octopus
+          - latin_name: Lumbricus terrestris
+            common_name: Common earthworm
+      - id: deuterostomia
+        latin_name: Deuterostomia
+        common_name: Deuterostomes
+        rank: Informal
+        divergence_mya: 600
+        rendezvous_number: 26
+        characters:
+        - description: Anus forms first from blastopore
+          character_type: synapomorphy
+          system: morphological
+        - description: Radial cleavage
+          character_type: synapomorphy
+          system: morphological
+        - description: Enterocoelous coelom formation
+          character_type: synapomorphy
+          system: morphological
+        representative_species:
+        - latin_name: Asterias rubens
+          common_name: Common starfish
+        children:
+        - id: echinodermata
+          latin_name: Echinodermata
+          common_name: Echinoderms
+          rank: Phylum
+          divergence_mya: 570
+          rendezvous_number: 25
+          characters:
+          - description: Pentaradial symmetry (adults)
+            character_type: synapomorphy
+            system: morphological
+          - description: Water vascular system
+            character_type: synapomorphy
+            system: morphological
+          - description: Calcareous endoskeleton
+            character_type: synapomorphy
+            system: morphological
+          representative_species:
+          - latin_name: Asterias rubens
+            common_name: Common starfish
+          - latin_name: Echinus esculentus
+            common_name: European edible sea urchin
+        - id: chordata
+          latin_name: Chordata
+          common_name: Chordates
+          rank: Phylum
+          divergence_mya: 565
+          rendezvous_number: 24
+          characters:
+          - description: Notochord
+            character_type: synapomorphy
+            system: morphological
+          - description: Dorsal hollow nerve cord
+            character_type: synapomorphy
+            system: morphological
+          - description: Pharyngeal slits
+            character_type: synapomorphy
+            system: morphological
+          - description: Post-anal tail
+            character_type: synapomorphy
+            system: morphological
+          representative_species:
+          - latin_name: Ciona intestinalis
+            common_name: Sea squirt
+          children:
+          - id: cephalochordata
+            latin_name: Cephalochordata
+            common_name: Lancelets
+            rank: Subphylum
+            divergence_mya: 560
+            rendezvous_number: 23
+            characters:
+            - description: Notochord extends full body length
+              character_type: synapomorphy
+              system: morphological
+            - description: Filter feeding via pharyngeal basket
+              character_type: synapomorphy
+              system: morphological
             representative_species:
-              - latin_name: Aurelia aurita
-                common_name: Moon jellyfish
-              - latin_name: Acropora millepora
-                common_name: Staghorn coral
-
-          - id: bilateria
-            latin_name: Bilateria
-            common_name: Bilaterians
-            rank: Informal
-            divergence_mya: 650
-            rendezvous_number: 29
-            synapomorphies:
-              - Bilateral symmetry
-              - Three germ layers (triploblastic)
-              - Cephalisation (head region)
+            - latin_name: Branchiostoma lanceolatum
+              common_name: Lancelet
+          - id: vertebrata
+            latin_name: Vertebrata
+            common_name: Vertebrates
+            rank: Subphylum
+            divergence_mya: 530
+            rendezvous_number: 22
+            characters:
+            - description: Vertebral column (or cranium at minimum)
+              character_type: synapomorphy
+              system: morphological
+            - description: Neural crest cells
+              character_type: synapomorphy
+              system: morphological
+            - description: Closed circulatory system
+              character_type: synapomorphy
+              system: physiological
             representative_species:
-              - latin_name: Caenorhabditis elegans
-                common_name: Roundworm
+            - latin_name: Petromyzon marinus
+              common_name: Sea lamprey
             children:
-              - id: protostomia
-                latin_name: Protostomia
-                common_name: Protostomes
-                rank: Informal
-                divergence_mya: 600
-                rendezvous_number: 28
-                synapomorphies:
-                  - Mouth forms first from blastopore
-                  - Spiral cleavage (ancestrally)
+            - id: agnatha
+              latin_name: Cyclostomata
+              common_name: Jawless fish
+              rank: Informal
+              divergence_mya: 530
+              rendezvous_number: 21
+              characters:
+              - description: No jaws
+                character_type: synapomorphy
+                system: morphological
+              - description: Cartilaginous skeleton
+                character_type: synapomorphy
+                system: morphological
+              - description: Rasping tongue
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Petromyzon marinus
+                common_name: Sea lamprey
+              - latin_name: Eptatretus stoutii
+                common_name: Pacific hagfish
+            - id: gnathostomata
+              latin_name: Gnathostomata
+              common_name: Jawed vertebrates
+              rank: Informal
+              divergence_mya: 530
+              rendezvous_number: 20
+              characters:
+              - description: Hinged jaws (from gill arches)
+                character_type: synapomorphy
+                system: morphological
+              - description: Paired appendages
+                character_type: synapomorphy
+                system: morphological
+              - description: Myelinated nerve fibres
+                character_type: synapomorphy
+                system: morphological
+              representative_species:
+              - latin_name: Callorhinchus milii
+                common_name: Elephant shark
+              children:
+              - id: chondrichthyes
+                latin_name: Chondrichthyes
+                common_name: Cartilaginous fish
+                rank: Class
+                divergence_mya: 460
+                rendezvous_number: 19
+                characters:
+                - description: Cartilaginous skeleton
+                  character_type: synapomorphy
+                  system: morphological
+                - description: Placoid scales (dermal denticles)
+                  character_type: synapomorphy
+                  system: morphological
+                - description: Internal fertilisation
+                  character_type: synapomorphy
+                  system: physiological
                 representative_species:
-                  - latin_name: Drosophila melanogaster
-                    common_name: Fruit fly
-                children:
-                  - id: ecdysozoa
-                    latin_name: Ecdysozoa
-                    common_name: Ecdysozoans
-                    rank: Informal
-                    divergence_mya: 580
-                    rendezvous_number: 27
-                    synapomorphies:
-                      - Growth by moulting (ecdysis)
-                      - Cuticle shed periodically
-                    representative_species:
-                      - latin_name: Drosophila melanogaster
-                        common_name: Fruit fly
-                      - latin_name: Caenorhabditis elegans
-                        common_name: Roundworm
-
-                  - id: lophotrochozoa
-                    latin_name: Lophotrochozoa
-                    common_name: Lophotrochozoans
-                    rank: Informal
-                    divergence_mya: 580
-                    synapomorphies:
-                      - Trochophore larvae or lophophore feeding structure
-                    representative_species:
-                      - latin_name: Octopus vulgaris
-                        common_name: Common octopus
-                      - latin_name: Lumbricus terrestris
-                        common_name: Common earthworm
-
-              - id: deuterostomia
-                latin_name: Deuterostomia
-                common_name: Deuterostomes
-                rank: Informal
-                divergence_mya: 600
-                rendezvous_number: 26
-                synapomorphies:
-                  - Anus forms first from blastopore
-                  - Radial cleavage
-                  - Enterocoelous coelom formation
+                - latin_name: Carcharodon carcharias
+                  common_name: Great white shark
+                - latin_name: Manta birostris
+                  common_name: Giant manta ray
+              - id: osteichthyes
+                latin_name: Osteichthyes
+                common_name: Bony fish
+                rank: Superclass
+                divergence_mya: 450
+                rendezvous_number: 18
+                characters:
+                - description: Bony skeleton
+                  character_type: synapomorphy
+                  system: morphological
+                - description: Swim bladder or lungs
+                  character_type: synapomorphy
+                  system: morphological
+                - description: Operculum covering gills
+                  character_type: synapomorphy
+                  system: morphological
                 representative_species:
-                  - latin_name: Asterias rubens
-                    common_name: Common starfish
+                - latin_name: Danio rerio
+                  common_name: Zebrafish
                 children:
-                  - id: echinodermata
-                    latin_name: Echinodermata
-                    common_name: Echinoderms
-                    rank: Phylum
-                    divergence_mya: 570
-                    rendezvous_number: 25
-                    synapomorphies:
-                      - Pentaradial symmetry (adults)
-                      - Water vascular system
-                      - Calcareous endoskeleton
+                - id: actinopterygii
+                  latin_name: Actinopterygii
+                  common_name: Ray-finned fish
+                  rank: Class
+                  divergence_mya: 430
+                  rendezvous_number: 17
+                  characters:
+                  - description: Ray-supported fins
+                    character_type: synapomorphy
+                    system: morphological
+                  - description: Ganoid, cycloid, or ctenoid scales
+                    character_type: synapomorphy
+                    system: morphological
+                  representative_species:
+                  - latin_name: Danio rerio
+                    common_name: Zebrafish
+                  - latin_name: Thunnus thynnus
+                    common_name: Atlantic bluefin tuna
+                - id: sarcopterygii
+                  latin_name: Sarcopterygii
+                  common_name: Lobe-finned fish
+                  rank: Class
+                  divergence_mya: 430
+                  rendezvous_number: 16
+                  characters:
+                  - description: Fleshy, lobed fins with internal skeleton
+                    character_type: synapomorphy
+                    system: morphological
+                  - description: Enamel on teeth
+                    character_type: synapomorphy
+                    system: morphological
+                  representative_species:
+                  - latin_name: Latimeria chalumnae
+                    common_name: Coelacanth
+                  children:
+                  - id: dipnoi
+                    latin_name: Dipnoi
+                    common_name: Lungfish
+                    rank: Subclass
+                    divergence_mya: 420
+                    rendezvous_number: 15
+                    characters:
+                    - description: Functional lungs for air breathing
+                      character_type: synapomorphy
+                      system: physiological
+                    - description: Can aestivate in mud
+                      character_type: synapomorphy
+                      system: physiological
                     representative_species:
-                      - latin_name: Asterias rubens
-                        common_name: Common starfish
-                      - latin_name: Echinus esculentus
-                        common_name: European edible sea urchin
-
-                  - id: chordata
-                    latin_name: Chordata
-                    common_name: Chordates
-                    rank: Phylum
-                    divergence_mya: 565
-                    rendezvous_number: 24
-                    synapomorphies:
-                      - Notochord
-                      - Dorsal hollow nerve cord
-                      - Pharyngeal slits
-                      - Post-anal tail
+                    - latin_name: Neoceratodus forsteri
+                      common_name: Australian lungfish
+                  - id: tetrapoda
+                    latin_name: Tetrapoda
+                    common_name: Tetrapods
+                    rank: Superclass
+                    divergence_mya: 395
+                    rendezvous_number: 14
+                    characters:
+                    - description: Four limbs with digits
+                      character_type: synapomorphy
+                      system: morphological
+                    - description: Lungs as primary respiratory organs
+                      character_type: synapomorphy
+                      system: physiological
+                    - description: Neck allowing head movement
+                      character_type: synapomorphy
+                      system: morphological
                     representative_species:
-                      - latin_name: Ciona intestinalis
-                        common_name: Sea squirt
+                    - latin_name: Ichthyostega stensioei
+                      common_name: Ichthyostega (extinct)
                     children:
-                      - id: cephalochordata
-                        latin_name: Cephalochordata
-                        common_name: Lancelets
-                        rank: Subphylum
-                        divergence_mya: 560
-                        rendezvous_number: 23
-                        synapomorphies:
-                          - Notochord extends full body length
-                          - Filter feeding via pharyngeal basket
+                    - id: amphibia
+                      latin_name: Amphibia
+                      common_name: Amphibians
+                      rank: Class
+                      divergence_mya: 370
+                      rendezvous_number: 13
+                      characters:
+                      - description: Permeable skin used in respiration
+                        character_type: synapomorphy
+                        system: physiological
+                      - description: Aquatic larval stage with metamorphosis
+                        character_type: synapomorphy
+                        system: physiological
+                      - description: Pedicellate teeth
+                        character_type: synapomorphy
+                        system: morphological
+                      representative_species:
+                      - latin_name: Rana temporaria
+                        common_name: Common frog
+                      - latin_name: Ambystoma mexicanum
+                        common_name: Axolotl
+                    - id: amniota
+                      latin_name: Amniota
+                      common_name: Amniotes
+                      rank: Informal
+                      divergence_mya: 340
+                      rendezvous_number: 12
+                      characters:
+                      - description: Amniotic egg (extraembryonic membranes)
+                        character_type: synapomorphy
+                        system: physiological
+                      - description: Internal fertilisation
+                        character_type: synapomorphy
+                        system: physiological
+                      - description: Dry, keratinised skin
+                        character_type: synapomorphy
+                        system: morphological
+                      representative_species:
+                      - latin_name: Sphenodon punctatus
+                        common_name: Tuatara
+                      children:
+                      - id: sauropsida
+                        latin_name: Sauropsida
+                        common_name: Reptiles and birds
+                        rank: Informal
+                        divergence_mya: 320
+                        rendezvous_number: 11
+                        characters:
+                        - description: Diapsid skull (two temporal fenestrae, ancestrally)
+                          character_type: synapomorphy
+                          system: morphological
+                        - description: Beta-keratin in scales/feathers
+                          character_type: synapomorphy
+                          system: morphological
+                        - description: Uric acid excretion
+                          character_type: synapomorphy
+                          system: physiological
                         representative_species:
-                          - latin_name: Branchiostoma lanceolatum
-                            common_name: Lancelet
-
-                      - id: vertebrata
-                        latin_name: Vertebrata
-                        common_name: Vertebrates
-                        rank: Subphylum
-                        divergence_mya: 530
-                        rendezvous_number: 22
-                        synapomorphies:
-                          - Vertebral column (or cranium at minimum)
-                          - Neural crest cells
-                          - Closed circulatory system
+                        - latin_name: Crocodylus niloticus
+                          common_name: Nile crocodile
+                        - latin_name: Aquila chrysaetos
+                          common_name: Golden eagle
+                      - id: synapsida
+                        latin_name: Synapsida
+                        common_name: Synapsids
+                        rank: Informal
+                        divergence_mya: 320
+                        rendezvous_number: 10
+                        characters:
+                        - description: Single temporal fenestra
+                          character_type: synapomorphy
+                          system: morphological
+                        - description: Differentiated teeth (heterodonty)
+                          character_type: synapomorphy
+                          system: morphological
                         representative_species:
-                          - latin_name: Petromyzon marinus
-                            common_name: Sea lamprey
+                        - latin_name: Dimetrodon grandis
+                          common_name: Dimetrodon (extinct)
                         children:
-                          - id: agnatha
-                            latin_name: Cyclostomata
-                            common_name: Jawless fish
-                            rank: Informal
-                            divergence_mya: 530
-                            rendezvous_number: 21
-                            synapomorphies:
-                              - No jaws
-                              - Cartilaginous skeleton
-                              - Rasping tongue
+                        - id: mammalia
+                          latin_name: Mammalia
+                          common_name: Mammals
+                          rank: Class
+                          divergence_mya: 220
+                          rendezvous_number: 9
+                          characters:
+                          - description: Mammary glands
+                            character_type: synapomorphy
+                            system: physiological
+                          - description: Hair or fur
+                            character_type: synapomorphy
+                            system: morphological
+                          - description: Three middle ear ossicles
+                            character_type: synapomorphy
+                            system: morphological
+                          - description: Neocortex
+                            character_type: synapomorphy
+                            system: morphological
+                          representative_species:
+                          - latin_name: Ornithorhynchus anatinus
+                            common_name: Platypus
+                          children:
+                          - id: monotremata
+                            latin_name: Monotremata
+                            common_name: Monotremes
+                            rank: Order
+                            divergence_mya: 220
+                            rendezvous_number: 8
+                            characters:
+                            - description: Egg-laying mammals
+                              character_type: synapomorphy
+                              system: physiological
+                            - description: Electroreception
+                              character_type: synapomorphy
+                              system: physiological
+                            - description: Cloaca
+                              character_type: synapomorphy
+                              system: morphological
                             representative_species:
-                              - latin_name: Petromyzon marinus
-                                common_name: Sea lamprey
-                              - latin_name: Eptatretus stoutii
-                                common_name: Pacific hagfish
-
-                          - id: gnathostomata
-                            latin_name: Gnathostomata
-                            common_name: Jawed vertebrates
+                            - latin_name: Ornithorhynchus anatinus
+                              common_name: Platypus
+                            - latin_name: Tachyglossus aculeatus
+                              common_name: Short-beaked echidna
+                          - id: theria
+                            latin_name: Theria
+                            common_name: Therians
                             rank: Informal
-                            divergence_mya: 530
-                            rendezvous_number: 20
-                            synapomorphies:
-                              - Hinged jaws (from gill arches)
-                              - Paired appendages
-                              - Myelinated nerve fibres
+                            divergence_mya: 190
+                            characters:
+                            - description: Live birth (or very short egg retention)
+                              character_type: synapomorphy
+                              system: physiological
+                            - description: Tribosphenic molars (ancestrally)
+                              character_type: synapomorphy
+                              system: morphological
                             representative_species:
-                              - latin_name: Callorhinchus milii
-                                common_name: Elephant shark
+                            - latin_name: Macropus rufus
+                              common_name: Red kangaroo
                             children:
-                              - id: chondrichthyes
-                                latin_name: Chondrichthyes
-                                common_name: Cartilaginous fish
-                                rank: Class
-                                divergence_mya: 460
-                                rendezvous_number: 19
-                                synapomorphies:
-                                  - Cartilaginous skeleton
-                                  - Placoid scales (dermal denticles)
-                                  - Internal fertilisation
+                            - id: marsupialia
+                              latin_name: Marsupialia
+                              common_name: Marsupials
+                              rank: Infraorder
+                              divergence_mya: 190
+                              rendezvous_number: 7
+                              characters:
+                              - description: Pouch (marsupium) for rearing young
+                                character_type: synapomorphy
+                                system: morphological
+                              - description: Very short gestation
+                                character_type: synapomorphy
+                                system: physiological
+                              - description: Epipubic bones
+                                character_type: synapomorphy
+                                system: morphological
+                              representative_species:
+                              - latin_name: Macropus rufus
+                                common_name: Red kangaroo
+                              - latin_name: Phascolarctos cinereus
+                                common_name: Koala
+                            - id: placentalia
+                              latin_name: Placentalia
+                              common_name: Placental mammals
+                              rank: Informal
+                              divergence_mya: 105
+                              rendezvous_number: 6
+                              characters:
+                              - description: Complex placenta for extended gestation
+                                character_type: synapomorphy
+                                system: physiological
+                              - description: Corpus callosum connecting brain hemispheres
+                                character_type: synapomorphy
+                                system: morphological
+                              representative_species:
+                              - latin_name: Loxodonta africana
+                                common_name: African elephant
+                              children:
+                              - id: afrotheria
+                                latin_name: Afrotheria
+                                common_name: Afrotherians
+                                rank: Superorder
+                                divergence_mya: 105
+                                characters:
+                                - description: African origin
+                                  character_type: synapomorphy
+                                  system: morphological
+                                - description: Testicondy (retained abdominal testes)
+                                  character_type: synapomorphy
+                                  system: morphological
                                 representative_species:
-                                  - latin_name: Carcharodon carcharias
-                                    common_name: Great white shark
-                                  - latin_name: Manta birostris
-                                    common_name: Giant manta ray
-
-                              - id: osteichthyes
-                                latin_name: Osteichthyes
-                                common_name: Bony fish
-                                rank: Superclass
-                                divergence_mya: 450
-                                rendezvous_number: 18
-                                synapomorphies:
-                                  - Bony skeleton
-                                  - Swim bladder or lungs
-                                  - Operculum covering gills
+                                - latin_name: Loxodonta africana
+                                  common_name: African elephant
+                                - latin_name: Trichechus manatus
+                                  common_name: West Indian manatee
+                              - id: xenarthra
+                                latin_name: Xenarthra
+                                common_name: Xenarthrans
+                                rank: Superorder
+                                divergence_mya: 105
+                                characters:
+                                - description: Extra articulations in vertebrae (xenarthrous)
+                                  character_type: synapomorphy
+                                  system: morphological
+                                - description: Reduced or absent teeth
+                                  character_type: synapomorphy
+                                  system: morphological
                                 representative_species:
-                                  - latin_name: Danio rerio
-                                    common_name: Zebrafish
+                                - latin_name: Bradypus variegatus
+                                  common_name: Brown-throated three-toed sloth
+                                - latin_name: Dasypus novemcinctus
+                                  common_name: Nine-banded armadillo
+                              - id: boreoeutheria
+                                latin_name: Boreoeutheria
+                                common_name: Boreoeutherians
+                                rank: Informal
+                                divergence_mya: 100
+                                rendezvous_number: 5
+                                characters:
+                                - description: Laurasian/northern origin
+                                  character_type: synapomorphy
+                                  system: morphological
+                                representative_species:
+                                - latin_name: Mus musculus
+                                  common_name: House mouse
                                 children:
-                                  - id: actinopterygii
-                                    latin_name: Actinopterygii
-                                    common_name: Ray-finned fish
-                                    rank: Class
-                                    divergence_mya: 430
-                                    rendezvous_number: 17
-                                    synapomorphies:
-                                      - Ray-supported fins
-                                      - Ganoid, cycloid, or ctenoid scales
+                                - id: laurasiatheria
+                                  latin_name: Laurasiatheria
+                                  common_name: Laurasiatherians
+                                  rank: Superorder
+                                  divergence_mya: 95
+                                  rendezvous_number: 4
+                                  characters:
+                                  - description: Laurasian landmass origin
+                                    character_type: synapomorphy
+                                    system: morphological
+                                  representative_species:
+                                  - latin_name: Bos taurus
+                                    common_name: Domestic cattle
+                                  - latin_name: Canis lupus familiaris
+                                    common_name: Domestic dog
+                                - id: euarchontoglires
+                                  latin_name: Euarchontoglires
+                                  common_name: Euarchontoglires
+                                  rank: Superorder
+                                  divergence_mya: 95
+                                  rendezvous_number: 3
+                                  characters:
+                                  - description: Shared molecular phylogenetic grouping
+                                    character_type: synapomorphy
+                                    system: molecular
+                                  representative_species:
+                                  - latin_name: Mus musculus
+                                    common_name: House mouse
+                                  children:
+                                  - id: glires
+                                    latin_name: Glires
+                                    common_name: Rodents and rabbits
+                                    rank: Informal
+                                    divergence_mya: 90
+                                    characters:
+                                    - description: Ever-growing incisors (ancestrally)
+                                      character_type: synapomorphy
+                                      system: morphological
                                     representative_species:
-                                      - latin_name: Danio rerio
-                                        common_name: Zebrafish
-                                      - latin_name: Thunnus thynnus
-                                        common_name: Atlantic bluefin tuna
-
-                                  - id: sarcopterygii
-                                    latin_name: Sarcopterygii
-                                    common_name: Lobe-finned fish
-                                    rank: Class
-                                    divergence_mya: 430
-                                    rendezvous_number: 16
-                                    synapomorphies:
-                                      - Fleshy, lobed fins with internal skeleton
-                                      - Enamel on teeth
+                                    - latin_name: Mus musculus
+                                      common_name: House mouse
+                                    - latin_name: Oryctolagus cuniculus
+                                      common_name: European rabbit
+                                  - id: euarchonta
+                                    latin_name: Euarchonta
+                                    common_name: Euarchontans
+                                    rank: Informal
+                                    divergence_mya: 90
+                                    characters:
+                                    - description: Primate-like adaptations
+                                      character_type: synapomorphy
+                                      system: morphological
                                     representative_species:
-                                      - latin_name: Latimeria chalumnae
-                                        common_name: Coelacanth
+                                    - latin_name: Galeopterus variegatus
+                                      common_name: Sunda flying lemur
                                     children:
-                                      - id: dipnoi
-                                        latin_name: Dipnoi
-                                        common_name: Lungfish
-                                        rank: Subclass
-                                        divergence_mya: 420
-                                        rendezvous_number: 15
-                                        synapomorphies:
-                                          - Functional lungs for air breathing
-                                          - Can aestivate in mud
+                                    - id: primates
+                                      latin_name: Primates
+                                      common_name: Primates
+                                      rank: Order
+                                      divergence_mya: 85
+                                      rendezvous_number: 2
+                                      characters:
+                                      - description: Forward-facing eyes with stereoscopic vision
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Grasping hands with opposable thumbs
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Nails instead of claws
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      - description: Large brain relative to body size
+                                        character_type: synapomorphy
+                                        system: morphological
+                                      representative_species:
+                                      - latin_name: Lemur catta
+                                        common_name: Ring-tailed lemur
+                                      children:
+                                      - id: strepsirrhini
+                                        latin_name: Strepsirrhini
+                                        common_name: Wet-nosed primates
+                                        rank: Suborder
+                                        divergence_mya: 85
+                                        characters:
+                                        - description: Rhinarium (wet nose)
+                                          character_type: synapomorphy
+                                          system: morphological
+                                        - description: Tapetum lucidum (reflective eye layer)
+                                          character_type: synapomorphy
+                                          system: morphological
+                                        - description: Dental comb
+                                          character_type: synapomorphy
+                                          system: morphological
                                         representative_species:
-                                          - latin_name: Neoceratodus forsteri
-                                            common_name: Australian lungfish
-
-                                      - id: tetrapoda
-                                        latin_name: Tetrapoda
-                                        common_name: Tetrapods
-                                        rank: Superclass
-                                        divergence_mya: 395
-                                        rendezvous_number: 14
-                                        synapomorphies:
-                                          - Four limbs with digits
-                                          - Lungs as primary respiratory organs
-                                          - Neck allowing head movement
+                                        - latin_name: Lemur catta
+                                          common_name: Ring-tailed lemur
+                                        - latin_name: Nycticebus coucang
+                                          common_name: Slow loris
+                                      - id: haplorhini
+                                        latin_name: Haplorhini
+                                        common_name: Dry-nosed primates
+                                        rank: Suborder
+                                        divergence_mya: 85
+                                        characters:
+                                        - description: Dry nose (no rhinarium)
+                                          character_type: synapomorphy
+                                          system: morphological
+                                        - description: Fovea in retina
+                                          character_type: synapomorphy
+                                          system: morphological
+                                        - description: Postorbital closure
+                                          character_type: synapomorphy
+                                          system: morphological
                                         representative_species:
-                                          - latin_name: Ichthyostega stensioei
-                                            common_name: Ichthyostega (extinct)
+                                        - latin_name: Tarsius tarsier
+                                          common_name: Philippine tarsier
                                         children:
-                                          - id: amphibia
-                                            latin_name: Amphibia
-                                            common_name: Amphibians
-                                            rank: Class
-                                            divergence_mya: 370
-                                            rendezvous_number: 13
-                                            synapomorphies:
-                                              - Permeable skin used in respiration
-                                              - Aquatic larval stage with metamorphosis
-                                              - Pedicellate teeth
+                                        - id: tarsiiformes
+                                          latin_name: Tarsiiformes
+                                          common_name: Tarsiers
+                                          rank: Infraorder
+                                          divergence_mya: 80
+                                          characters:
+                                          - description: Enormous eyes relative to body
+                                            character_type: synapomorphy
+                                            system: morphological
+                                          - description: Elongated tarsus bones
+                                            character_type: synapomorphy
+                                            system: morphological
+                                          - description: Fully nocturnal
+                                            character_type: synapomorphy
+                                            system: behavioral
+                                          representative_species:
+                                          - latin_name: Tarsius tarsier
+                                            common_name: Philippine tarsier
+                                        - id: simiiformes
+                                          latin_name: Simiiformes
+                                          common_name: Simians
+                                          rank: Infraorder
+                                          divergence_mya: 65
+                                          characters:
+                                          - description: Full postorbital closure
+                                            character_type: synapomorphy
+                                            system: morphological
+                                          - description: Trichromatic colour vision (mostly)
+                                            character_type: synapomorphy
+                                            system: physiological
+                                          - description: Larger brain
+                                            character_type: synapomorphy
+                                            system: morphological
+                                          representative_species:
+                                          - latin_name: Cebus capucinus
+                                            common_name: White-faced capuchin
+                                          children:
+                                          - id: platyrrhini
+                                            latin_name: Platyrrhini
+                                            common_name: New World monkeys
+                                            rank: Infraorder
+                                            divergence_mya: 43
+                                            characters:
+                                            - description: Flat, sideways-facing nostrils
+                                              character_type: synapomorphy
+                                              system: morphological
+                                            - description: Prehensile tail (in some)
+                                              character_type: synapomorphy
+                                              system: morphological
+                                            - description: Three premolars
+                                              character_type: synapomorphy
+                                              system: morphological
                                             representative_species:
-                                              - latin_name: Rana temporaria
-                                                common_name: Common frog
-                                              - latin_name: Ambystoma mexicanum
-                                                common_name: Axolotl
-
-                                          - id: amniota
-                                            latin_name: Amniota
-                                            common_name: Amniotes
-                                            rank: Informal
-                                            divergence_mya: 340
-                                            rendezvous_number: 12
-                                            synapomorphies:
-                                              - Amniotic egg (extraembryonic membranes)
-                                              - Internal fertilisation
-                                              - Dry, keratinised skin
+                                            - latin_name: Cebus capucinus
+                                              common_name: White-faced capuchin
+                                            - latin_name: Alouatta caraya
+                                              common_name: Black howler monkey
+                                          - id: catarrhini
+                                            latin_name: Catarrhini
+                                            common_name: Old World monkeys and apes
+                                            rank: Infraorder
+                                            divergence_mya: 30
+                                            characters:
+                                            - description: Downward-facing nostrils
+                                              character_type: synapomorphy
+                                              system: morphological
+                                            - description: Two premolars
+                                              character_type: synapomorphy
+                                              system: morphological
+                                            - description: Non-prehensile tail or no tail
+                                              character_type: synapomorphy
+                                              system: morphological
                                             representative_species:
-                                              - latin_name: Sphenodon punctatus
-                                                common_name: Tuatara
+                                            - latin_name: Papio anubis
+                                              common_name: Olive baboon
                                             children:
-                                              - id: sauropsida
-                                                latin_name: Sauropsida
-                                                common_name: Reptiles and birds
-                                                rank: Informal
-                                                divergence_mya: 320
-                                                rendezvous_number: 11
-                                                synapomorphies:
-                                                  - Diapsid skull (two temporal fenestrae, ancestrally)
-                                                  - Beta-keratin in scales/feathers
-                                                  - Uric acid excretion
+                                            - id: cercopithecoidea
+                                              latin_name: Cercopithecoidea
+                                              common_name: Old World monkeys
+                                              rank: Superfamily
+                                              divergence_mya: 30
+                                              characters:
+                                              - description: Bilophodont molars
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              - description: Ischial callosities (sitting pads)
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              - description: Tail present
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              representative_species:
+                                              - latin_name: Papio anubis
+                                                common_name: Olive baboon
+                                              - latin_name: Macaca mulatta
+                                                common_name: Rhesus macaque
+                                            - id: hominoidea
+                                              latin_name: Hominoidea
+                                              common_name: Apes
+                                              rank: Superfamily
+                                              divergence_mya: 25
+                                              rendezvous_number: 1
+                                              characters:
+                                              - description: No tail
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              - description: Broad chest and shoulder mobility
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              - description: Larger brain-to-body ratio
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              - description: Y-5 molar pattern
+                                                character_type: synapomorphy
+                                                system: morphological
+                                              representative_species:
+                                              - latin_name: Hylobates lar
+                                                common_name: White-handed gibbon
+                                              children:
+                                              - id: hylobatidae
+                                                latin_name: Hylobatidae
+                                                common_name: Gibbons
+                                                rank: Family
+                                                divergence_mya: 20
+                                                characters:
+                                                - description: Long arms for brachiation
+                                                  character_type: synapomorphy
+                                                  system: morphological
+                                                - description: Monogamous pair bonding
+                                                  character_type: synapomorphy
+                                                  system: behavioral
+                                                - description: Territorial song duets
+                                                  character_type: synapomorphy
+                                                  system: behavioral
                                                 representative_species:
-                                                  - latin_name: Crocodylus niloticus
-                                                    common_name: Nile crocodile
-                                                  - latin_name: Aquila chrysaetos
-                                                    common_name: Golden eagle
-
-                                              - id: synapsida
-                                                latin_name: Synapsida
-                                                common_name: Synapsids
-                                                rank: Informal
-                                                divergence_mya: 320
-                                                rendezvous_number: 10
-                                                synapomorphies:
-                                                  - Single temporal fenestra
-                                                  - Differentiated teeth (heterodonty)
+                                                - latin_name: Hylobates lar
+                                                  common_name: White-handed gibbon
+                                                - latin_name: Symphalangus syndactylus
+                                                  common_name: Siamang
+                                              - id: hominidae
+                                                latin_name: Hominidae
+                                                common_name: Great apes
+                                                rank: Family
+                                                divergence_mya: 15
+                                                characters:
+                                                - description: Largest primate body sizes
+                                                  character_type: synapomorphy
+                                                  system: morphological
+                                                - description: Extended juvenile period
+                                                  character_type: synapomorphy
+                                                  system: physiological
+                                                - description: Complex social behaviour
+                                                  character_type: synapomorphy
+                                                  system: behavioral
                                                 representative_species:
-                                                  - latin_name: Dimetrodon grandis
-                                                    common_name: Dimetrodon (extinct)
+                                                - latin_name: Pongo abelii
+                                                  common_name: Sumatran orangutan
                                                 children:
-                                                  - id: mammalia
-                                                    latin_name: Mammalia
-                                                    common_name: Mammals
-                                                    rank: Class
-                                                    divergence_mya: 220
-                                                    rendezvous_number: 9
-                                                    synapomorphies:
-                                                      - Mammary glands
-                                                      - Hair or fur
-                                                      - Three middle ear ossicles
-                                                      - Neocortex
+                                                - id: ponginae
+                                                  latin_name: Ponginae
+                                                  common_name: Orangutans
+                                                  rank: Subfamily
+                                                  divergence_mya: 14
+                                                  characters:
+                                                  - description: Solitary lifestyle
+                                                    character_type: synapomorphy
+                                                    system: behavioral
+                                                  - description: Extreme sexual dimorphism
+                                                    character_type: synapomorphy
+                                                    system: morphological
+                                                  - description: Arboreal
+                                                    character_type: synapomorphy
+                                                    system: behavioral
+                                                  representative_species:
+                                                  - latin_name: Pongo abelii
+                                                    common_name: Sumatran orangutan
+                                                  - latin_name: Pongo pygmaeus
+                                                    common_name: Bornean orangutan
+                                                - id: homininae
+                                                  latin_name: Homininae
+                                                  common_name: African great apes
+                                                  rank: Subfamily
+                                                  divergence_mya: 10
+                                                  characters:
+                                                  - description: Knuckle-walking (ancestrally)
+                                                    character_type: synapomorphy
+                                                    system: morphological
+                                                  - description: Large brain relative to body
+                                                    character_type: synapomorphy
+                                                    system: morphological
+                                                  - description: Complex tool use
+                                                    character_type: synapomorphy
+                                                    system: behavioral
+                                                  representative_species:
+                                                  - latin_name: Gorilla gorilla
+                                                    common_name: Western gorilla
+                                                  children:
+                                                  - id: gorillini
+                                                    latin_name: Gorillini
+                                                    common_name: Gorillas
+                                                    rank: Informal
+                                                    divergence_mya: 10
+                                                    characters:
+                                                    - description: Largest living primates
+                                                      character_type: synapomorphy
+                                                      system: morphological
+                                                    - description: Sagittal crest
+                                                      character_type: synapomorphy
+                                                      system: morphological
+                                                    - description: Herbivorous diet
+                                                      character_type: synapomorphy
+                                                      system: behavioral
                                                     representative_species:
-                                                      - latin_name: Ornithorhynchus anatinus
-                                                        common_name: Platypus
+                                                    - latin_name: Gorilla gorilla
+                                                      common_name: Western gorilla
+                                                    - latin_name: Gorilla beringei
+                                                      common_name: Eastern gorilla
+                                                  - id: hominini
+                                                    latin_name: Hominini
+                                                    common_name: Humans and chimps
+                                                    rank: Informal
+                                                    divergence_mya: 7
+                                                    characters:
+                                                    - description: Reduced canine teeth
+                                                      character_type: synapomorphy
+                                                      system: morphological
+                                                    - description: Thicker tooth enamel
+                                                      character_type: synapomorphy
+                                                      system: morphological
+                                                    representative_species:
+                                                    - latin_name: Pan troglodytes
+                                                      common_name: Common chimpanzee
                                                     children:
-                                                      - id: monotremata
-                                                        latin_name: Monotremata
-                                                        common_name: Monotremes
-                                                        rank: Order
-                                                        divergence_mya: 220
-                                                        rendezvous_number: 8
-                                                        synapomorphies:
-                                                          - Egg-laying mammals
-                                                          - Electroreception
-                                                          - Cloaca
-                                                        representative_species:
-                                                          - latin_name: Ornithorhynchus anatinus
-                                                            common_name: Platypus
-                                                          - latin_name: Tachyglossus aculeatus
-                                                            common_name: Short-beaked echidna
-
-                                                      - id: theria
-                                                        latin_name: Theria
-                                                        common_name: Therians
-                                                        rank: Informal
-                                                        divergence_mya: 190
-                                                        synapomorphies:
-                                                          - Live birth (or very short egg retention)
-                                                          - Tribosphenic molars (ancestrally)
-                                                        representative_species:
-                                                          - latin_name: Macropus rufus
-                                                            common_name: Red kangaroo
-                                                        children:
-                                                          - id: marsupialia
-                                                            latin_name: Marsupialia
-                                                            common_name: Marsupials
-                                                            rank: Infraorder
-                                                            divergence_mya: 190
-                                                            rendezvous_number: 7
-                                                            synapomorphies:
-                                                              - Pouch (marsupium) for rearing young
-                                                              - Very short gestation
-                                                              - Epipubic bones
-                                                            representative_species:
-                                                              - latin_name: Macropus rufus
-                                                                common_name: Red kangaroo
-                                                              - latin_name: Phascolarctos cinereus
-                                                                common_name: Koala
-
-                                                          - id: placentalia
-                                                            latin_name: Placentalia
-                                                            common_name: Placental mammals
-                                                            rank: Informal
-                                                            divergence_mya: 105
-                                                            rendezvous_number: 6
-                                                            synapomorphies:
-                                                              - Complex placenta for extended gestation
-                                                              - Corpus callosum connecting brain hemispheres
-                                                            representative_species:
-                                                              - latin_name: Loxodonta africana
-                                                                common_name: African elephant
-                                                            children:
-                                                              - id: afrotheria
-                                                                latin_name: Afrotheria
-                                                                common_name: Afrotherians
-                                                                rank: Superorder
-                                                                divergence_mya: 105
-                                                                synapomorphies:
-                                                                  - African origin
-                                                                  - Testicondy (retained abdominal testes)
-                                                                representative_species:
-                                                                  - latin_name: Loxodonta africana
-                                                                    common_name: African elephant
-                                                                  - latin_name: Trichechus manatus
-                                                                    common_name: West Indian manatee
-
-                                                              - id: xenarthra
-                                                                latin_name: Xenarthra
-                                                                common_name: Xenarthrans
-                                                                rank: Superorder
-                                                                divergence_mya: 105
-                                                                synapomorphies:
-                                                                  - Extra articulations in vertebrae (xenarthrous)
-                                                                  - Reduced or absent teeth
-                                                                representative_species:
-                                                                  - latin_name: Bradypus variegatus
-                                                                    common_name: Brown-throated three-toed sloth
-                                                                  - latin_name: Dasypus novemcinctus
-                                                                    common_name: Nine-banded armadillo
-
-                                                              - id: boreoeutheria
-                                                                latin_name: Boreoeutheria
-                                                                common_name: Boreoeutherians
-                                                                rank: Informal
-                                                                divergence_mya: 100
-                                                                rendezvous_number: 5
-                                                                synapomorphies:
-                                                                  - Laurasian/northern origin
-                                                                representative_species:
-                                                                  - latin_name: Mus musculus
-                                                                    common_name: House mouse
-                                                                children:
-                                                                  - id: laurasiatheria
-                                                                    latin_name: Laurasiatheria
-                                                                    common_name: Laurasiatherians
-                                                                    rank: Superorder
-                                                                    divergence_mya: 95
-                                                                    rendezvous_number: 4
-                                                                    synapomorphies:
-                                                                      - Laurasian landmass origin
-                                                                    representative_species:
-                                                                      - latin_name: Bos taurus
-                                                                        common_name: Domestic cattle
-                                                                      - latin_name: Canis lupus familiaris
-                                                                        common_name: Domestic dog
-
-                                                                  - id: euarchontoglires
-                                                                    latin_name: Euarchontoglires
-                                                                    common_name: Euarchontoglires
-                                                                    rank: Superorder
-                                                                    divergence_mya: 95
-                                                                    rendezvous_number: 3
-                                                                    synapomorphies:
-                                                                      - Shared molecular phylogenetic grouping
-                                                                    representative_species:
-                                                                      - latin_name: Mus musculus
-                                                                        common_name: House mouse
-                                                                    children:
-                                                                      - id: glires
-                                                                        latin_name: Glires
-                                                                        common_name: Rodents and rabbits
-                                                                        rank: Informal
-                                                                        divergence_mya: 90
-                                                                        synapomorphies:
-                                                                          - Ever-growing incisors (ancestrally)
-                                                                        representative_species:
-                                                                          - latin_name: Mus musculus
-                                                                            common_name: House mouse
-                                                                          - latin_name: Oryctolagus cuniculus
-                                                                            common_name: European rabbit
-
-                                                                      - id: euarchonta
-                                                                        latin_name: Euarchonta
-                                                                        common_name: Euarchontans
-                                                                        rank: Informal
-                                                                        divergence_mya: 90
-                                                                        synapomorphies:
-                                                                          - Primate-like adaptations
-                                                                        representative_species:
-                                                                          - latin_name: Galeopterus variegatus
-                                                                            common_name: Sunda flying lemur
-                                                                        children:
-                                                                          - id: primates
-                                                                            latin_name: Primates
-                                                                            common_name: Primates
-                                                                            rank: Order
-                                                                            divergence_mya: 85
-                                                                            rendezvous_number: 2
-                                                                            synapomorphies:
-                                                                              - Forward-facing eyes with stereoscopic vision
-                                                                              - Grasping hands with opposable thumbs
-                                                                              - Nails instead of claws
-                                                                              - Large brain relative to body size
-                                                                            representative_species:
-                                                                              - latin_name: Lemur catta
-                                                                                common_name: Ring-tailed lemur
-                                                                            children:
-                                                                              - id: strepsirrhini
-                                                                                latin_name: Strepsirrhini
-                                                                                common_name: Wet-nosed primates
-                                                                                rank: Suborder
-                                                                                divergence_mya: 85
-                                                                                synapomorphies:
-                                                                                  - Rhinarium (wet nose)
-                                                                                  - Tapetum lucidum (reflective eye layer)
-                                                                                  - Dental comb
-                                                                                representative_species:
-                                                                                  - latin_name: Lemur catta
-                                                                                    common_name: Ring-tailed lemur
-                                                                                  - latin_name: Nycticebus coucang
-                                                                                    common_name: Slow loris
-
-                                                                              - id: haplorhini
-                                                                                latin_name: Haplorhini
-                                                                                common_name: Dry-nosed primates
-                                                                                rank: Suborder
-                                                                                divergence_mya: 85
-                                                                                synapomorphies:
-                                                                                  - Dry nose (no rhinarium)
-                                                                                  - Fovea in retina
-                                                                                  - Postorbital closure
-                                                                                representative_species:
-                                                                                  - latin_name: Tarsius tarsier
-                                                                                    common_name: Philippine tarsier
-                                                                                children:
-                                                                                  - id: tarsiiformes
-                                                                                    latin_name: Tarsiiformes
-                                                                                    common_name: Tarsiers
-                                                                                    rank: Infraorder
-                                                                                    divergence_mya: 80
-                                                                                    synapomorphies:
-                                                                                      - Enormous eyes relative to body
-                                                                                      - Elongated tarsus bones
-                                                                                      - Fully nocturnal
-                                                                                    representative_species:
-                                                                                      - latin_name: Tarsius tarsier
-                                                                                        common_name: Philippine tarsier
-
-                                                                                  - id: simiiformes
-                                                                                    latin_name: Simiiformes
-                                                                                    common_name: Simians
-                                                                                    rank: Infraorder
-                                                                                    divergence_mya: 65
-                                                                                    synapomorphies:
-                                                                                      - Full postorbital closure
-                                                                                      - Trichromatic colour vision (mostly)
-                                                                                      - Larger brain
-                                                                                    representative_species:
-                                                                                      - latin_name: Cebus capucinus
-                                                                                        common_name: White-faced capuchin
-                                                                                    children:
-                                                                                      - id: platyrrhini
-                                                                                        latin_name: Platyrrhini
-                                                                                        common_name: New World monkeys
-                                                                                        rank: Infraorder
-                                                                                        divergence_mya: 43
-                                                                                        synapomorphies:
-                                                                                          - Flat, sideways-facing nostrils
-                                                                                          - Prehensile tail (in some)
-                                                                                          - Three premolars
-                                                                                        representative_species:
-                                                                                          - latin_name: Cebus capucinus
-                                                                                            common_name: White-faced capuchin
-                                                                                          - latin_name: Alouatta caraya
-                                                                                            common_name: Black howler monkey
-
-                                                                                      - id: catarrhini
-                                                                                        latin_name: Catarrhini
-                                                                                        common_name: Old World monkeys and apes
-                                                                                        rank: Infraorder
-                                                                                        divergence_mya: 30
-                                                                                        synapomorphies:
-                                                                                          - Downward-facing nostrils
-                                                                                          - Two premolars
-                                                                                          - Non-prehensile tail or no tail
-                                                                                        representative_species:
-                                                                                          - latin_name: Papio anubis
-                                                                                            common_name: Olive baboon
-                                                                                        children:
-                                                                                          - id: cercopithecoidea
-                                                                                            latin_name: Cercopithecoidea
-                                                                                            common_name: Old World monkeys
-                                                                                            rank: Superfamily
-                                                                                            divergence_mya: 30
-                                                                                            synapomorphies:
-                                                                                              - Bilophodont molars
-                                                                                              - Ischial callosities (sitting pads)
-                                                                                              - Tail present
-                                                                                            representative_species:
-                                                                                              - latin_name: Papio anubis
-                                                                                                common_name: Olive baboon
-                                                                                              - latin_name: Macaca mulatta
-                                                                                                common_name: Rhesus macaque
-
-                                                                                          - id: hominoidea
-                                                                                            latin_name: Hominoidea
-                                                                                            common_name: Apes
-                                                                                            rank: Superfamily
-                                                                                            divergence_mya: 25
-                                                                                            rendezvous_number: 1
-                                                                                            synapomorphies:
-                                                                                              - No tail
-                                                                                              - Broad chest and shoulder mobility
-                                                                                              - Larger brain-to-body ratio
-                                                                                              - Y-5 molar pattern
-                                                                                            representative_species:
-                                                                                              - latin_name: Hylobates lar
-                                                                                                common_name: White-handed gibbon
-                                                                                            children:
-                                                                                              - id: hylobatidae
-                                                                                                latin_name: Hylobatidae
-                                                                                                common_name: Gibbons
-                                                                                                rank: Family
-                                                                                                divergence_mya: 20
-                                                                                                synapomorphies:
-                                                                                                  - Long arms for brachiation
-                                                                                                  - Monogamous pair bonding
-                                                                                                  - Territorial song duets
-                                                                                                representative_species:
-                                                                                                  - latin_name: Hylobates lar
-                                                                                                    common_name: White-handed gibbon
-                                                                                                  - latin_name: Symphalangus syndactylus
-                                                                                                    common_name: Siamang
-
-                                                                                              - id: hominidae
-                                                                                                latin_name: Hominidae
-                                                                                                common_name: Great apes
-                                                                                                rank: Family
-                                                                                                divergence_mya: 15
-                                                                                                synapomorphies:
-                                                                                                  - Largest primate body sizes
-                                                                                                  - Extended juvenile period
-                                                                                                  - Complex social behaviour
-                                                                                                representative_species:
-                                                                                                  - latin_name: Pongo abelii
-                                                                                                    common_name: Sumatran orangutan
-                                                                                                children:
-                                                                                                  - id: ponginae
-                                                                                                    latin_name: Ponginae
-                                                                                                    common_name: Orangutans
-                                                                                                    rank: Subfamily
-                                                                                                    divergence_mya: 14
-                                                                                                    synapomorphies:
-                                                                                                      - Solitary lifestyle
-                                                                                                      - Extreme sexual dimorphism
-                                                                                                      - Arboreal
-                                                                                                    representative_species:
-                                                                                                      - latin_name: Pongo abelii
-                                                                                                        common_name: Sumatran orangutan
-                                                                                                      - latin_name: Pongo pygmaeus
-                                                                                                        common_name: Bornean orangutan
-
-                                                                                                  - id: homininae
-                                                                                                    latin_name: Homininae
-                                                                                                    common_name: African great apes
-                                                                                                    rank: Subfamily
-                                                                                                    divergence_mya: 10
-                                                                                                    synapomorphies:
-                                                                                                      - Knuckle-walking (ancestrally)
-                                                                                                      - Large brain relative to body
-                                                                                                      - Complex tool use
-                                                                                                    representative_species:
-                                                                                                      - latin_name: Gorilla gorilla
-                                                                                                        common_name: Western gorilla
-                                                                                                    children:
-                                                                                                      - id: gorillini
-                                                                                                        latin_name: Gorillini
-                                                                                                        common_name: Gorillas
-                                                                                                        rank: Informal
-                                                                                                        divergence_mya: 10
-                                                                                                        synapomorphies:
-                                                                                                          - Largest living primates
-                                                                                                          - Sagittal crest
-                                                                                                          - Herbivorous diet
-                                                                                                        representative_species:
-                                                                                                          - latin_name: Gorilla gorilla
-                                                                                                            common_name: Western gorilla
-                                                                                                          - latin_name: Gorilla beringei
-                                                                                                            common_name: Eastern gorilla
-
-                                                                                                      - id: hominini
-                                                                                                        latin_name: Hominini
-                                                                                                        common_name: Humans and chimps
-                                                                                                        rank: Informal
-                                                                                                        divergence_mya: 7
-                                                                                                        synapomorphies:
-                                                                                                          - Reduced canine teeth
-                                                                                                          - Thicker tooth enamel
-                                                                                                        representative_species:
-                                                                                                          - latin_name: Pan troglodytes
-                                                                                                            common_name: Common chimpanzee
-                                                                                                        children:
-                                                                                                          - id: panina
-                                                                                                            latin_name: Pan
-                                                                                                            common_name: Chimpanzees
-                                                                                                            rank: Genus
-                                                                                                            divergence_mya: 7
-                                                                                                            synapomorphies:
-                                                                                                              - Knuckle-walking
-                                                                                                              - Complex social hierarchies
-                                                                                                              - Tool manufacture and use
-                                                                                                            representative_species:
-                                                                                                              - latin_name: Pan troglodytes
-                                                                                                                common_name: Common chimpanzee
-                                                                                                              - latin_name: Pan paniscus
-                                                                                                                common_name: Bonobo
-
-                                                                                                          - id: homo
-                                                                                                            latin_name: Homo
-                                                                                                            common_name: Humans
-                                                                                                            rank: Genus
-                                                                                                            divergence_mya: 2.5
-                                                                                                            synapomorphies:
-                                                                                                              - Obligate bipedalism
-                                                                                                              - Greatly enlarged brain
-                                                                                                              - Language and symbolic thought
-                                                                                                              - Precision grip
-                                                                                                            representative_species:
-                                                                                                              - latin_name: Homo sapiens
-                                                                                                                common_name: Modern human
-                                                                                                              - latin_name: Homo neanderthalensis
-                                                                                                                common_name: Neanderthal (extinct)
+                                                    - id: panina
+                                                      latin_name: Pan
+                                                      common_name: Chimpanzees
+                                                      rank: Genus
+                                                      divergence_mya: 7
+                                                      characters:
+                                                      - description: Knuckle-walking
+                                                        character_type: synapomorphy
+                                                        system: morphological
+                                                      - description: Complex social hierarchies
+                                                        character_type: synapomorphy
+                                                        system: behavioral
+                                                      - description: Tool manufacture and use
+                                                        character_type: synapomorphy
+                                                        system: behavioral
+                                                      representative_species:
+                                                      - latin_name: Pan troglodytes
+                                                        common_name: Common chimpanzee
+                                                      - latin_name: Pan paniscus
+                                                        common_name: Bonobo
+                                                    - id: homo
+                                                      latin_name: Homo
+                                                      common_name: Humans
+                                                      rank: Genus
+                                                      divergence_mya: 2.5
+                                                      characters:
+                                                      - description: Obligate bipedalism
+                                                        character_type: synapomorphy
+                                                        system: morphological
+                                                      - description: Greatly enlarged brain
+                                                        character_type: synapomorphy
+                                                        system: morphological
+                                                      - description: Language and symbolic thought
+                                                        character_type: synapomorphy
+                                                        system: behavioral
+                                                      - description: Precision grip
+                                                        character_type: synapomorphy
+                                                        system: morphological
+                                                      representative_species:
+                                                      - latin_name: Homo sapiens
+                                                        common_name: Modern human
+                                                      - latin_name: Homo neanderthalensis
+                                                        common_name: Neanderthal (extinct)

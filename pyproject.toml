@@ -12,6 +12,11 @@ dependencies = [
     "PyYAML>=6.0",
 ]
 
+[project.optional-dependencies]
+artwork = [
+    "google-genai>=1.0",
+]
+
 [project.scripts]
 phylo-cards = "phylogenetic_cards.cli:main"
 

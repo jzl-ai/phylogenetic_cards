@@ -27,6 +27,27 @@ class TaxonomicRank(Enum):
     INFORMAL = "Informal"
 
 
+class CharacterType(Enum):
+    SYNAPOMORPHY = "synapomorphy"
+    AUTAPOMORPHY = "autapomorphy"
+    PLESIOMORPHY = "plesiomorphy"
+
+
+class CharacterSystem(Enum):
+    MORPHOLOGICAL = "morphological"
+    MOLECULAR = "molecular"
+    BEHAVIORAL = "behavioral"
+    PHYSIOLOGICAL = "physiological"
+
+
+@dataclass
+class Character:
+    description: str
+    character_type: CharacterType
+    system: CharacterSystem = CharacterSystem.MORPHOLOGICAL
+    notes: str = ""
+
+
 @dataclass
 class Species:
     latin_name: str
@@ -43,11 +64,19 @@ class Clade:
     common_name: str
     rank: TaxonomicRank
     divergence_mya: float | None = None
-    synapomorphies: list[str] = field(default_factory=list)
+    characters: list[Character] = field(default_factory=list)
     representative_species: list[Species] = field(default_factory=list)
     rendezvous_number: int | None = None
     parent: Clade | None = field(default=None, repr=False)
     children: list[Clade] = field(default_factory=list, repr=False)
+
+    @property
+    def synapomorphies(self) -> list[Character]:
+        return [c for c in self.characters if c.character_type == CharacterType.SYNAPOMORPHY]
+
+    @property
+    def autapomorphies(self) -> list[Character]:
+        return [c for c in self.characters if c.character_type == CharacterType.AUTAPOMORPHY]
 
     def add_child(self, child: Clade) -> None:
         child.parent = self
@@ -84,6 +113,7 @@ class CardFront:
 @dataclass
 class CardBack:
     synapomorphies: list[str]
+    other_characters: list[str]
     representative_species: list[str]
     parent_clade_name: str | None
     child_clade_names: list[str]

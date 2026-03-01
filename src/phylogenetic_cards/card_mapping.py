@@ -5,7 +5,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Callable
 
-from .models import CardBack, CardContent, CardFront, Clade, TaxonomicRank
+from .models import CardBack, CardContent, CardFront, CharacterType, Clade, TaxonomicRank
 from .tree import PhylogeneticTree
 
 
@@ -17,8 +17,19 @@ def clade_to_card(clade: Clade) -> CardContent:
         divergence_mya=clade.divergence_mya,
         rank=clade.rank.value,
     )
+
+    synapomorphies = [
+        c.description for c in clade.characters
+        if c.character_type == CharacterType.SYNAPOMORPHY
+    ]
+    other_characters = [
+        c.description for c in clade.characters
+        if c.character_type != CharacterType.SYNAPOMORPHY
+    ]
+
     back = CardBack(
-        synapomorphies=list(clade.synapomorphies),
+        synapomorphies=synapomorphies,
+        other_characters=other_characters,
         representative_species=[str(sp) for sp in clade.representative_species],
         parent_clade_name=clade.parent.common_name if clade.parent else None,
         child_clade_names=[c.common_name for c in clade.children],
@@ -75,7 +86,11 @@ def generate_card_set(
     tree: PhylogeneticTree,
     selector: CardSelector,
     converter: Callable[[Clade], CardContent] = clade_to_card,
-) -> list[CardContent]:
-    """Pipeline: select clades from tree, convert each to CardContent."""
+) -> list[tuple[Clade, CardContent]]:
+    """Pipeline: select clades from tree, convert each to CardContent.
+
+    Returns (Clade, CardContent) pairs so callers retain access to the
+    original Clade for artwork generation and tree diagram rendering.
+    """
     clades = selector.select(tree)
-    return [converter(c) for c in clades]
+    return [(c, converter(c)) for c in clades]

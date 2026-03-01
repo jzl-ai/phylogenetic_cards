@@ -64,7 +64,12 @@ class CardRenderer:
             self.font_mya = ImageFont.load_default(s.mya_size)
             self.font_small = ImageFont.load_default(s.small_size)
 
-    def render_front(self, card: CardContent) -> Image.Image:
+    def render_front(
+        self,
+        card: CardContent,
+        illustration: Image.Image | None = None,
+        tree_diagram: Image.Image | None = None,
+    ) -> Image.Image:
         s = self.style
         img = Image.new("RGB", (s.width, s.height), s.bg_color)
         draw = ImageDraw.Draw(img)
@@ -118,18 +123,48 @@ class CardRenderer:
             fill=s.muted_color,
             font=self.font_common,
         )
-        y += 80
+        y += 40
 
-        # Divergence time — centered, prominent
+        # -- Organism illustration (centered in middle area) --
+        if illustration is not None:
+            illust_max_w = s.width - 2 * s.margin_x - 40
+            illust_max_h = 550
+            illust = illustration.copy()
+            illust.thumbnail((illust_max_w, illust_max_h), Image.LANCZOS)
+            ix = (s.width - illust.width) // 2
+            iy = y + 10
+            if illust.mode == "RGBA":
+                img.paste(illust, (ix, iy), illust)
+            else:
+                img.paste(illust, (ix, iy))
+            y = iy + illust.height + 10
+
+        # -- Lower section: tree diagram (left) and MYA (right) --
+        if tree_diagram is not None:
+            lower_y = s.height - s.margin_bottom - 350
+            td = tree_diagram.copy()
+            td.thumbnail((280, 320), Image.LANCZOS)
+            if td.mode == "RGBA":
+                img.paste(td, (s.margin_x, lower_y), td)
+            else:
+                img.paste(td, (s.margin_x, lower_y))
+
         if card.front.divergence_mya is not None:
             mya_text = f"{card.front.divergence_mya:g} MYA"
             bbox = draw.textbbox((0, 0), mya_text, font=self.font_mya)
             text_w = bbox[2] - bbox[0]
 
-            # Place in lower third
-            mya_y = s.height - s.margin_bottom - 200
+            if tree_diagram is not None:
+                # Right-aligned to balance tree diagram
+                mya_x = s.width - s.margin_x - text_w
+                mya_y = s.height - s.margin_bottom - 200
+            else:
+                # Centered (original layout)
+                mya_x = (s.width - text_w) / 2
+                mya_y = s.height - s.margin_bottom - 200
+
             draw.text(
-                ((s.width - text_w) / 2, mya_y),
+                (mya_x, mya_y),
                 mya_text,
                 fill=s.accent_color,
                 font=self.font_mya,
@@ -138,8 +173,9 @@ class CardRenderer:
             label = "million years ago"
             bbox2 = draw.textbbox((0, 0), label, font=self.font_small)
             text_w2 = bbox2[2] - bbox2[0]
+            label_x = mya_x + (text_w - text_w2) / 2
             draw.text(
-                ((s.width - text_w2) / 2, mya_y + 50),
+                (label_x, mya_y + 50),
                 label,
                 fill=s.muted_color,
                 font=self.font_small,
@@ -184,7 +220,7 @@ class CardRenderer:
         if card.back.synapomorphies:
             draw.text(
                 (s.margin_x, y),
-                "DEFINING FEATURES",
+                "SYNAPOMORPHIES",
                 fill=s.accent_color,
                 font=self.font_heading,
             )
@@ -192,6 +228,31 @@ class CardRenderer:
 
             for syn in card.back.synapomorphies:
                 bullet = f"\u2022 {syn}"
+                lines = self._wrap_text(draw, bullet, self.font_body, content_width - 20)
+                for line in lines:
+                    draw.text(
+                        (s.margin_x + 10, y),
+                        line,
+                        fill=s.text_color,
+                        font=self.font_body,
+                    )
+                    y += 34
+                y += 4
+
+            y += 16
+
+        # Other characters (autapomorphies, plesiomorphies)
+        if card.back.other_characters:
+            draw.text(
+                (s.margin_x, y),
+                "OTHER CHARACTERS",
+                fill=s.muted_color,
+                font=self.font_heading,
+            )
+            y += 45
+
+            for char in card.back.other_characters:
+                bullet = f"\u2022 {char}"
                 lines = self._wrap_text(draw, bullet, self.font_body, content_width - 20)
                 for line in lines:
                     draw.text(
@@ -265,12 +326,16 @@ class CardRenderer:
         return img
 
     def render_to_files(
-        self, card: CardContent, output_dir: str | Path
+        self,
+        card: CardContent,
+        output_dir: str | Path,
+        illustration: Image.Image | None = None,
+        tree_diagram: Image.Image | None = None,
     ) -> tuple[Path, Path]:
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        front_img = self.render_front(card)
+        front_img = self.render_front(card, illustration=illustration, tree_diagram=tree_diagram)
         back_img = self.render_back(card)
 
         front_path = output_dir / f"{card.clade_id}_front.png"
