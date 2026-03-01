@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phylogenetic-cards"
+version = "0.1.0"
+description = "Generate printable phylogenetic flash cards from tree data"
+requires-python = ">=3.11"
+dependencies = [
+    "Pillow>=10.0",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+phylo-cards = "phylogenetic_cards.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
