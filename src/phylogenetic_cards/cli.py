@@ -85,6 +85,24 @@ def main() -> None:
         help="Directory for cached AI-generated artwork",
     )
     parser.add_argument(
+        "--resolve-divergence",
+        action="store_true",
+        default=False,
+        help="Look up divergence times from TimeTree (requires internet)",
+    )
+    parser.add_argument(
+        "--force-divergence",
+        action="store_true",
+        default=False,
+        help="Re-resolve divergence times even if cached",
+    )
+    parser.add_argument(
+        "--divergence-cache",
+        type=Path,
+        default=Path("divergence_cache"),
+        help="Directory for cached divergence time lookups",
+    )
+    parser.add_argument(
         "--no-tree-diagram",
         action="store_true",
         default=False,
@@ -118,6 +136,35 @@ def main() -> None:
                 clade.representative_species = result.representative_species
 
         # Re-generate card content with updated clade data
+        from .card_mapping import clade_to_card
+
+        pairs = [(clade, clade_to_card(clade)) for clade, _ in pairs]
+
+    # Phase 1.5a: Divergence time resolution via TimeTree API (optional)
+    if args.resolve_divergence:
+        from .divergence import DivergenceResolver
+
+        print("Resolving divergence times from TimeTree...")
+        resolver = DivergenceResolver(cache_dir=args.divergence_cache)
+        resolver.resolve_batch(
+            [clade for clade, _ in pairs],
+            force=args.force_divergence,
+        )
+
+    # Phase 1.5b: Always load cached divergence times
+    from .divergence import DivergenceCache
+
+    div_cache = DivergenceCache(args.divergence_cache)
+    div_results = div_cache.load_batch([clade.id for clade, _ in pairs])
+
+    loaded_any = False
+    for clade, _ in pairs:
+        mya = div_results.get(clade.id)
+        if mya is not None:
+            clade.divergence_mya = mya
+            loaded_any = True
+
+    if loaded_any:
         from .card_mapping import clade_to_card
 
         pairs = [(clade, clade_to_card(clade)) for clade, _ in pairs]
